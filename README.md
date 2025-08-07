@@ -1,73 +1,82 @@
-# Welcome to your Lovable project
+# IRF World Ranger Congress 2027 Landing Page
 
-## Project info
+A modern, responsive landing page for the 11th IRF World Ranger Congress 2027, built with React, TypeScript, and Tailwind CSS.
 
-**URL**: https://lovable.dev/projects/d653791f-c38e-49e8-abdd-8a261fcc3e3d
+## Features
 
-## How can I edit this code?
+- Responsive design optimized for all devices
+- Modern UI with smooth animations and interactions
+- Built with React 18 and TypeScript
+- Styled with Tailwind CSS and shadcn/ui components
+- Optimized for performance and accessibility
 
-There are several ways of editing your application.
+## Getting Started
 
-**Use Lovable**
+### Prerequisites
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/d653791f-c38e-49e8-abdd-8a261fcc3e3d) and start prompting.
+- Node.js (>=18.0.0)
+- pnpm (>=8.0.0)
 
-Changes made via Lovable will be committed automatically to this repo.
-
-**Use your preferred IDE**
-
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
-
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
-
-Follow these steps:
+### Installation
 
 ```sh
-# Step 1: Clone the repository using the project's Git URL.
+# Clone the repository
 git clone <YOUR_GIT_URL>
 
-# Step 2: Navigate to the project directory.
+# Navigate to the project directory
 cd <YOUR_PROJECT_NAME>
 
-# Step 3: Install the necessary dependencies.
-npm i
+# Install dependencies
+pnpm install
 
-# Step 4: Start the development server with auto-reloading and an instant preview.
-npm run dev
+# Start the development server
+pnpm dev
 ```
 
-**Edit a file directly in GitHub**
+The application will be available at `http://localhost:8080`
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+## Available Scripts
 
-**Use GitHub Codespaces**
+- `pnpm dev` - Start the development server
+- `pnpm build` - Build the project for production
+- `pnpm build:dev` - Build the project in development mode
+- `pnpm preview` - Preview the production build
+- `pnpm lint` - Run ESLint
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+## Technologies Used
 
-## What technologies are used for this project?
+- **React 18** - UI library
+- **TypeScript** - Type safety
+- **Vite** - Build tool and dev server
+- **Tailwind CSS** - Utility-first CSS framework
+- **shadcn/ui** - Component library
+- **pnpm** - Package manager
 
-This project is built with:
+## Project Structure
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
+```
+src/
+├── components/     # React components
+├── lib/           # Utility functions and configurations
+├── styles/        # Global styles and CSS
+└── main.tsx       # Application entry point
+```
 
-## How can I deploy this project?
+## Deployment
 
-Simply open [Lovable](https://lovable.dev/projects/d653791f-c38e-49e8-abdd-8a261fcc3e3d) and click on Share -> Publish.
+This project can be deployed to any static hosting service like:
+- Vercel
+- Netlify
+- GitHub Pages
+- AWS S3 + CloudFront
 
-## Can I connect a custom domain to my Lovable project?
+## Contributing
 
-Yes, you can!
+1. Fork the repository
+2. Create a feature branch
+3. Make your changes
+4. Submit a pull request
 
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
+## License
 
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/tips-tricks/custom-domain#step-by-step-guide)
+This project is licensed under the MIT License.

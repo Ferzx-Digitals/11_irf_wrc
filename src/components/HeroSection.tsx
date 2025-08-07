@@ -28,7 +28,7 @@ const HeroSection = () => {
     <section className="relative h-screen overflow-hidden parallax-container">
       {/* Dynamic Background Layers */}
       <div 
-        className="parallax-layer"
+        className="parallax-layer absolute inset-0 z-0"
         style={{
           transform: `translateY(${scrollY * 0.3}px) scale(${1.1 + scrollY * 0.0002})`,
           backgroundImage: `url(${forestBackground})`,
@@ -40,153 +40,13 @@ const HeroSection = () => {
       
       {/* Animated Gradient Overlays */}
       <div 
-        className="parallax-layer"
+        className="parallax-layer absolute inset-0 z-1"
         style={{
           background: `radial-gradient(circle at ${mousePosition.x}% ${mousePosition.y}%, 
             hsl(var(--forest-deep) / 0.4) 0%, 
             hsl(var(--sky-blue) / 0.3) 40%, 
             hsl(var(--gold-warm) / 0.2) 80%, 
             transparent 100%)`,
-        }}
-      />
-      
-      {/* Floating Poster Integration */}
-      <div 
-        className="absolute inset-0 flex items-center justify-center z-15"
-        style={{
-          transform: `translateY(${scrollY * 0.5}px) rotate(${mousePosition.x * 0.02 - 1}deg)`,
-        }}
-      >
-        <div className="relative group">
-          {/* Poster with Creative Effects */}
-          <div 
-            className="relative w-80 md:w-96 transition-all duration-1000 ease-out"
-            style={{
-              transform: `scale(${0.9 + mousePosition.y * 0.002}) rotateY(${mousePosition.x * 0.1 - 5}deg)`,
-              filter: `brightness(${1.1 + mousePosition.y * 0.001}) contrast(${1.1 + mousePosition.x * 0.001})`,
-            }}
-          >
-            {/* Glowing Background */}
-            <div className="absolute inset-0 bg-gradient-to-r from-forest-primary to-gold-warm rounded-3xl blur-2xl opacity-50 scale-110"></div>
-            
-            {/* Main Poster */}
-            <img 
-              src="/lovable-uploads/ec2e9621-1882-466f-917b-90e9f614bcf1.png"
-              alt="11th IRF World Ranger Congress 2027"
-              className="relative z-10 w-full rounded-3xl shadow-floating transition-all duration-700"
-              style={{
-                filter: `saturate(${1.2 + mousePosition.x * 0.002})`,
-              }}
-            />
-            
-            {/* Animated Border */}
-            <div 
-              className="absolute inset-0 rounded-3xl border-2 border-gold-bright opacity-60"
-              style={{
-                boxShadow: `0 0 ${20 + mousePosition.y * 0.3}px hsl(var(--gold-bright) / 0.6)`,
-              }}
-            ></div>
-            
-            {/* Floating Particles */}
-            <div className="absolute -top-10 -left-10 w-6 h-6 bg-forest-light rounded-full opacity-70 float-gentle"></div>
-            <div className="absolute -bottom-8 -right-8 w-4 h-4 bg-gold-warm rounded-full opacity-80 float-gentle" style={{ animationDelay: '1s' }}></div>
-            <div className="absolute top-1/2 -left-12 w-3 h-3 bg-sky-blue rounded-full opacity-60 float-gentle" style={{ animationDelay: '2s' }}></div>
-          </div>
-        </div>
-      </div>
-
-      {/* Magnificent Save the Date Text */}
-      <div className="relative z-20 h-full flex flex-col items-center justify-center">
-        {/* Top Text */}
-        <div 
-          className="text-center mb-8"
-          style={{
-            transform: `translateY(${scrollY * 0.2}px)`,
-          }}
-        >
-          <div className="relative">
-            {/* Animated Background Text */}
-            <div 
-              className="absolute inset-0 text-6xl md:text-8xl font-bold text-forest-deep opacity-5 select-none"
-              style={{
-                transform: `translateX(${mousePosition.x * 0.1 - 5}px) translateY(${mousePosition.y * 0.05 - 2.5}px)`,
-              }}
-            >
-              SAVE THE DATE
-            </div>
-            
-            {/* Main Save the Date */}
-            <h1 
-              className="text-4xl md:text-7xl font-bold mb-4 relative"
-              style={{
-                background: `linear-gradient(135deg, 
-                  hsl(var(--forest-deep)), 
-                  hsl(var(--gold-warm)), 
-                  hsl(var(--forest-primary)))`,
-                WebkitBackgroundClip: 'text',
-                backgroundClip: 'text',
-                WebkitTextFillColor: 'transparent',
-                textShadow: `0 2px 10px hsl(var(--forest-deep) / 0.3)`,
-              }}
-            >
-              SAVE THE DATE
-            </h1>
-            
-            {/* Decorative Elements */}
-            <div className="flex items-center justify-center space-x-4 mb-6">
-              <div className="w-20 h-1 bg-gradient-to-r from-transparent via-forest-primary to-transparent"></div>
-              <div className="text-2xl">🌿</div>
-              <div className="w-20 h-1 bg-gradient-to-r from-transparent via-forest-primary to-transparent"></div>
-            </div>
-          </div>
-        </div>
-        
-        {/* Bottom Date & Location */}
-        <div 
-          className="text-center"
-          style={{
-            transform: `translateY(${scrollY * -0.1}px)`,
-          }}
-        >
-          {/* Date Display */}
-          <div className="mb-4">
-            <div 
-              className="text-3xl md:text-5xl font-bold text-earth-brown mb-2"
-              style={{
-                textShadow: `2px 2px 8px hsl(var(--earth-brown) / 0.3)`,
-                transform: `scale(${1 + mousePosition.y * 0.001})`,
-              }}
-            >
-              April 19-23, 2027
-            </div>
-            <div className="text-xl md:text-2xl text-forest-primary">
-              Puerto Iguazú, Argentina
-            </div>
-          </div>
-          
-          {/* Subtitle */}
-          <div 
-            className="text-lg md:text-xl text-forest-deep/80 max-w-2xl mx-auto italic"
-            style={{
-              transform: `translateY(${mousePosition.y * 0.02}px)`,
-            }}
-          >
-            "Where guardians of nature unite beneath the mist of Iguazú Falls"
-          </div>
-        </div>
-      </div>
-      
-      {/* Enhanced Foreground Layer */}
-      <div 
-        className="parallax-layer pointer-events-none z-10"
-        style={{
-          transform: `translateY(${scrollY * 0.8}px) translateX(${mousePosition.x * 0.02 - 1}px)`,
-          backgroundImage: `url(${forestForeground})`,
-          backgroundSize: 'cover',
-          backgroundPosition: 'bottom',
-          backgroundRepeat: 'no-repeat',
-          opacity: 0.6,
-          filter: `hue-rotate(${mousePosition.x * 0.1}deg)`,
         }}
       />
       
@@ -240,6 +100,183 @@ const HeroSection = () => {
             transparent 80%)`,
         }}
       />
+      
+      {/* Floating Poster Integration */}
+      <div 
+        className="absolute inset-0 flex items-center justify-center z-15"
+        style={{
+          transform: `translateY(${scrollY * 0.5}px) rotate(${mousePosition.x * 0.02 - 1}deg)`,
+        }}
+      >
+        <div className="relative group">
+          {/* Poster with Creative Effects */}
+          <div 
+            className="relative w-80 md:w-96 transition-all duration-1000 ease-out"
+            style={{
+              transform: `scale(${0.9 + mousePosition.y * 0.002}) rotateY(${mousePosition.x * 0.1 - 5}deg)`,
+              filter: `brightness(${1.1 + mousePosition.y * 0.001}) contrast(${1.1 + mousePosition.x * 0.001})`,
+            }}
+          >
+            {/* Glowing Background */}
+            <div className="absolute inset-0 bg-gradient-to-r from-forest-primary to-gold-warm rounded-3xl blur-2xl opacity-50 scale-110"></div>
+            
+            {/* Floating Particles */}
+            <div className="absolute -top-10 -left-10 w-6 h-6 bg-forest-light rounded-full opacity-70 float-gentle"></div>
+            <div className="absolute -bottom-8 -right-8 w-4 h-4 bg-gold-warm rounded-full opacity-80 float-gentle" style={{ animationDelay: '1s' }}></div>
+            <div className="absolute top-1/2 -left-12 w-3 h-3 bg-sky-blue rounded-full opacity-60 float-gentle" style={{ animationDelay: '2s' }}></div>
+          </div>
+        </div>
+      </div>
+
+      {/* Enhanced Foreground Layer */}
+      <div 
+        className="parallax-layer pointer-events-none z-10"
+        style={{
+          transform: `translateY(${scrollY * 0.8}px) translateX(${mousePosition.x * 0.02 - 1}px)`,
+          backgroundImage: `url(${forestForeground})`,
+          backgroundSize: 'cover',
+          backgroundPosition: 'bottom',
+          backgroundRepeat: 'no-repeat',
+          opacity: 0.6,
+          filter: `hue-rotate(${mousePosition.x * 0.1}deg)`,
+        }}
+      />
+
+      {/* Magnificent Save the Date Text */}
+      <div className="relative z-20 h-full flex flex-col items-center justify-center">
+        {/* Top Text */}
+        <div 
+          className="text-center mb-8"
+          style={{
+            transform: `translateY(${scrollY * 0.2}px)`,
+          }}
+        >
+          <div className="relative">
+            {/* Logo above Save the Date */}
+            <div className="mb-8">
+              <img 
+                src="/images/logo_1.png"
+                alt="IRF World Ranger Congress Logo"
+                className="w-32 md:w-48 mx-auto mb-6 opacity-90"
+                style={{
+                  filter: `drop-shadow(0 4px 8px rgba(0,0,0,0.3))`,
+                  transform: `scale(${1 + mousePosition.y * 0.001})`,
+                }}
+              />
+            </div>
+            
+            {/* Animated Background Text */}
+            <div 
+              className="absolute  text-6xl md:text-8xl font-bold text-forest-deep opacity-5 select-none"
+              style={{
+                transform: `translateX(${mousePosition.x * 0.1 - 5}px) translateY(${mousePosition.y * 0.05 - 2.5}px)`,
+              }}
+            >
+              SAVE THE DATE
+            </div>
+            
+            
+            {/* Main Save the Date */}
+            <h1 
+              className="text-4xl md:text-7xl font-bold mb-4 relative"
+              style={{
+                background: `linear-gradient(135deg, 
+                  hsl(var(--forest-deep)), 
+                  hsl(var(--gold-warm)), 
+                  hsl(var(--forest-primary)))`,
+                WebkitBackgroundClip: 'text',
+                backgroundClip: 'text',
+                WebkitTextFillColor: 'transparent',
+                textShadow: `0 2px 10px hsl(var(--forest-deep) / 0.3)`,
+              }}
+            >
+              SAVE THE DATE
+            </h1>
+
+
+            
+            {/* Decorative Elements */}
+            <div className="flex items-center justify-center space-x-4 mb-6">
+              <div className="w-20 h-1 bg-gradient-to-r from-transparent via-forest-primary to-transparent"></div>
+              <div className="text-2xl">🌿</div>
+              <div className="w-20 h-1 bg-gradient-to-r from-transparent via-forest-primary to-transparent"></div>
+            </div>
+          </div>
+        </div>
+        
+        {/* Bottom Date & Location */}
+        <div 
+          className="text-center"
+          style={{
+            transform: `translateY(${scrollY * -0.1}px)`,
+          }}
+        >
+          {/* Date Display */}
+          <div className="mb-4">
+            <div 
+              className="text-3xl md:text-5xl font-bold text-earth-brown mb-2"
+              style={{
+                textShadow: `2px 2px 8px hsl(var(--earth-brown) / 0.3)`,
+                transform: `scale(${1 + mousePosition.y * 0.001})`,
+              }}
+            >
+              April 19-23, 2027
+            </div>
+            <div className="text-xl md:text-xl text-forest-primary">
+              Puerto Iguazú, Argentina
+            </div>
+          </div>
+          
+          {/* Subtitle */}
+          <div
+            className="text-md md:text-xl text-forest-deep/80 max-w-2xl mx-auto italic"
+            style={{
+              transform: `translateY(${mousePosition.y * 0.02}px)`,
+            }}
+          >
+            "Where guardians of nature unite beneath the mist of Iguazú Falls"
+          </div>
+          
+          {/* Partner Logos */}
+          <div 
+            className="mt-12 mb-8"
+            style={{
+              transform: `translateY(${scrollY * -0.05}px)`,
+            }}
+          >
+            <div className="text-center mb-6">
+              <p className="text-sm text-earth-brown/70 uppercase tracking-wider font-medium">
+                Organized by
+              </p>
+            </div>
+            <div className="flex items-center justify-center space-x-8 md:space-x-12">
+              {/* Partner Logo 1 */}
+              <div className="group">
+                <img 
+                  src="/images/organizer_1.png"
+                  alt="Partner 1"
+                  className="h-16 md:h-24 w-auto opacity-90 group-hover:opacity-100 transition-all duration-300 rounded-lg"
+                  style={{
+                    filter: 'drop-shadow(0 2px 4px rgba(0,0,0,0.2))',
+                  }}
+                />
+              </div>
+              
+              {/* Partner Logo 2 */}
+              <div className="group">
+                <img 
+                  src="/images/organizer_2.png"
+                  alt="Partner 2"
+                  className="h-16 md:h-24 w-auto opacity-90 group-hover:opacity-100 transition-all duration-300 rounded-lg"
+                  style={{
+                    filter: 'drop-shadow(0 2px 4px rgba(0,0,0,0.2))',
+                  }}
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </section>
   );
 };

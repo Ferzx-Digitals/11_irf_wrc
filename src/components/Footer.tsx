@@ -3,12 +3,18 @@ import { Heart, Leaf } from 'lucide-react';
 const Footer = () => {
   return (
     <footer className="bg-forest-deep text-white py-12 relative overflow-hidden">
-      {/* Background pattern */}
-      <div className="absolute inset-0 opacity-5">
-        <div className="w-full h-full" style={{
-          backgroundImage: `url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23ffffff' fill-opacity='0.1'%3E%3Cpath d='M20 20l10-10v5l-5 5 5 5v5l-10-10z'/%3E%3C/g%3E%3C/svg%3E")`,
-        }} />
+      {/* Background image */}
+      <div className="absolute inset-0">
+        <div 
+          className="w-full h-full bg-cover bg-center bg-no-repeat opacity-20"
+          style={{
+            backgroundImage: 'url("/images/footer_background.png")',
+          }} 
+        />
       </div>
+
+      {/* Overlay to ensure text readability */}
+      <div className="absolute inset-0 bg-forest-deep/80" />
 
       <div className="container mx-auto px-4 relative z-10">
         <div className="max-w-4xl mx-auto text-center">
@@ -67,7 +73,7 @@ const Footer = () => {
           </div>
 
           {/* Conservation message */}
-          <div className="mt-8 p-6 bg-white/5 rounded-lg border border-white/10">
+          <div className="mt-8 p-6 bg-white/5 rounded-lg border border-white/10 backdrop-blur-sm">
             <p className="text-forest-light text-sm italic">
               "The ultimate goal of the ranger is to protect the wilderness and wildlife for future generations. 
               Every step we take today shapes the world our children will inherit."

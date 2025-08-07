@@ -61,8 +61,18 @@ const AboutSection = () => {
         <div className="max-w-6xl mx-auto">
           {/* Flowing Title Section */}
           <div className={`text-center mb-20 ${isVisible ? 'animate-fade-up' : 'opacity-0 translate-y-20'}`}>
-            <div className="inline-flex items-center justify-center mb-6">
-              <div className="w-20 h-1 bg-forest-primary rounded-full mr-4"></div>
+            <div className="inline-flex items-center justify-center mb-6 relative">
+              <div className="w-20 h-1 bg-forest-primary rounded-full mr-4 relative">
+                {/* Bird perched on the left line */}
+                <img 
+                  src="/images/toucan.png" 
+                  alt="Bird perched on branch"
+                  className="absolute -top-24 w-100 h-100 animate-float-gentle hidden md:block"
+                  style={{
+                    transform: 'scaleX(-1)',
+                  }}
+                />
+              </div>
               <h2 className="text-4xl md:text-6xl font-bold text-forest-deep">
                 11th IRF World Ranger Congress
               </h2>
