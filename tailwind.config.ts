@@ -61,7 +61,38 @@ export default {
 					'accent-foreground': 'hsl(var(--sidebar-accent-foreground))',
 					border: 'hsl(var(--sidebar-border))',
 					ring: 'hsl(var(--sidebar-ring))'
+				},
+				// Forest-themed color extensions
+				forest: {
+					deep: 'hsl(var(--forest-deep))',
+					primary: 'hsl(var(--forest-primary))',
+					light: 'hsl(var(--forest-light))',
+					mist: 'hsl(var(--forest-mist))'
+				},
+				earth: {
+					brown: 'hsl(var(--earth-brown))',
+					warm: 'hsl(var(--earth-warm))',
+					light: 'hsl(var(--earth-light))'
+				},
+				sky: {
+					blue: 'hsl(var(--sky-blue))',
+					light: 'hsl(var(--sky-light))'
+				},
+				water: {
+					deep: 'hsl(var(--water-deep))'
+				},
+				gold: {
+					warm: 'hsl(var(--gold-warm))',
+					bright: 'hsl(var(--gold-bright))'
+				},
+				wildlife: {
+					toucan: 'hsl(var(--toucan-orange))',
+					jaguar: 'hsl(var(--jaguar-spot))'
 				}
+			},
+			fontFamily: {
+				'poppins': ['Poppins', 'sans-serif'],
+				'montserrat': ['Montserrat', 'sans-serif']
 			},
 			borderRadius: {
 				lg: 'var(--radius)',

@@ -2,41 +2,82 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
+/* Forest-themed design system for IRF World Ranger Congress 2027
 All colors MUST be HSL.
 */
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
+    /* Forest Color Palette */
+    --background: 120 15% 97%;
+    --foreground: 140 30% 15%;
 
-    --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
+    /* Forest greens */
+    --forest-deep: 140 60% 20%;
+    --forest-primary: 135 55% 35%;
+    --forest-light: 120 40% 65%;
+    --forest-mist: 120 25% 85%;
 
-    --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
+    /* Earth tones */
+    --earth-brown: 25 40% 35%;
+    --earth-warm: 30 50% 55%;
+    --earth-light: 40 35% 75%;
 
-    --primary: 222.2 47.4% 11.2%;
-    --primary-foreground: 210 40% 98%;
+    /* Sky and water */
+    --sky-blue: 200 70% 60%;
+    --sky-light: 200 50% 80%;
+    --water-deep: 195 65% 45%;
 
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
+    /* Golden accents */
+    --gold-warm: 45 85% 65%;
+    --gold-bright: 50 90% 70%;
 
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
+    /* Wildlife colors */
+    --toucan-orange: 25 90% 60%;
+    --jaguar-spot: 30 20% 25%;
 
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
+    /* Semantic tokens */
+    --card: 120 20% 98%;
+    --card-foreground: 140 30% 15%;
 
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
+    --popover: 120 20% 98%;
+    --popover-foreground: 140 30% 15%;
 
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
+    --primary: 135 55% 35%;
+    --primary-foreground: 120 25% 95%;
 
-    --radius: 0.5rem;
+    --secondary: 120 25% 85%;
+    --secondary-foreground: 140 30% 15%;
+
+    --muted: 120 20% 90%;
+    --muted-foreground: 140 25% 45%;
+
+    --accent: 45 85% 65%;
+    --accent-foreground: 140 30% 15%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 120 25% 95%;
+
+    --border: 120 20% 85%;
+    --input: 120 20% 85%;
+    --ring: 135 55% 35%;
+
+    /* Beautiful gradients */
+    --gradient-forest: linear-gradient(135deg, hsl(var(--forest-deep)), hsl(var(--forest-primary)));
+    --gradient-earth: linear-gradient(180deg, hsl(var(--earth-brown)), hsl(var(--earth-warm)));
+    --gradient-sky: linear-gradient(180deg, hsl(var(--sky-light)), hsl(var(--sky-blue)));
+    --gradient-sunset: linear-gradient(45deg, hsl(var(--gold-warm)), hsl(var(--toucan-orange)));
+    
+    /* Elegant shadows */
+    --shadow-forest: 0 10px 30px -10px hsl(var(--forest-deep) / 0.3);
+    --shadow-earth: 0 8px 25px -8px hsl(var(--earth-brown) / 0.4);
+    --shadow-floating: 0 20px 40px -15px hsl(var(--forest-primary) / 0.2);
+
+    /* Smooth transitions */
+    --transition-smooth: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-bounce: all 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+
+    --radius: 1rem;
 
     --sidebar-background: 0 0% 98%;
 
@@ -101,5 +142,134 @@ All colors MUST be HSL.
 
   body {
     @apply bg-background text-foreground;
+    font-family: 'Poppins', sans-serif;
+  }
+}
+
+@layer components {
+  /* Forest-themed utility classes */
+  .forest-gradient {
+    background: var(--gradient-forest);
+  }
+  
+  .earth-gradient {
+    background: var(--gradient-earth);
+  }
+  
+  .sky-gradient {
+    background: var(--gradient-sky);
+  }
+  
+  .sunset-gradient {
+    background: var(--gradient-sunset);
+  }
+  
+  .shadow-forest {
+    box-shadow: var(--shadow-forest);
+  }
+  
+  .shadow-earth {
+    box-shadow: var(--shadow-earth);
+  }
+  
+  .shadow-floating {
+    box-shadow: var(--shadow-floating);
+  }
+  
+  .transition-smooth {
+    transition: var(--transition-smooth);
+  }
+  
+  .transition-bounce {
+    transition: var(--transition-bounce);
+  }
+
+  /* Parallax base styles */
+  .parallax-container {
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .parallax-layer {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+
+  /* Floating animations */
+  .float-gentle {
+    animation: float-gentle 6s ease-in-out infinite;
+  }
+  
+  .float-leaves {
+    animation: float-leaves 8s linear infinite;
+  }
+
+  /* Wildlife animations */
+  .fly-across {
+    animation: fly-across 15s linear infinite;
+  }
+  
+  .peek-in-out {
+    animation: peek-in-out 8s ease-in-out infinite;
+  }
+}
+
+@layer utilities {
+  /* Custom keyframes for forest animations */
+  @keyframes float-gentle {
+    0%, 100% { transform: translateY(0px) rotate(0deg); }
+    50% { transform: translateY(-10px) rotate(2deg); }
+  }
+  
+  @keyframes float-leaves {
+    0% { transform: translateX(-100px) translateY(0px) rotate(0deg); opacity: 0; }
+    10% { opacity: 1; }
+    90% { opacity: 1; }
+    100% { transform: translateX(calc(100vw + 100px)) translateY(-50px) rotate(360deg); opacity: 0; }
+  }
+  
+  @keyframes fly-across {
+    0% { transform: translateX(-100px) translateY(20px); opacity: 0; }
+    10% { opacity: 1; }
+    90% { opacity: 1; }
+    100% { transform: translateX(calc(100vw + 100px)) translateY(-20px); opacity: 0; }
+  }
+  
+  @keyframes peek-in-out {
+    0%, 70%, 100% { transform: translateX(-100%); }
+    15%, 55% { transform: translateX(0%); }
+  }
+  
+  @keyframes fade-up {
+    from {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  @keyframes slide-in-left {
+    from {
+      opacity: 0;
+      transform: translateX(-50px);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+  
+  .animate-fade-up {
+    animation: fade-up 0.8s ease-out forwards;
+  }
+  
+  .animate-slide-in-left {
+    animation: slide-in-left 0.8s ease-out forwards;
   }
 }
