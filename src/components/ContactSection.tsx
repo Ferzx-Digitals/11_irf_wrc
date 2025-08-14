@@ -38,19 +38,19 @@ const ContactSection = () => {
     <section ref={sectionRef} className="relative py-32 earth-gradient overflow-hidden">
       {/* Dynamic Background Elements */}
       <div className="absolute inset-0">
-        <div 
+        <div
           className="absolute top-20 left-10 w-40 h-40 rounded-full bg-forest-light opacity-10"
           style={{
             transform: `translateY(${scrollY * 0.08}px) scale(${1 + scrollY * 0.0001})`,
           }}
         />
-        <div 
+        <div
           className="absolute bottom-20 right-20 w-32 h-32 rounded-full bg-gold-warm opacity-15"
           style={{
             transform: `translateX(${scrollY * -0.05}px) rotate(${scrollY * 0.02}deg)`,
           }}
         />
-        <div 
+        <div
           className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-96 h-96 rounded-full bg-sky-light opacity-5"
           style={{
             transform: `translateX(-50%) translateY(-50%) rotate(${scrollY * -0.01}deg)`,
@@ -67,7 +67,7 @@ const ContactSection = () => {
               Join the Movement
             </h2>
             <p className="text-xl text-white/90 max-w-3xl mx-auto leading-relaxed">
-              Be part of the global effort to protect our planet's most precious ecosystems. 
+              Be part of the global effort to protect our planet's most precious ecosystems.
               Your voice matters in shaping the future of conservation.
             </p>
           </div>
@@ -82,11 +82,11 @@ const ContactSection = () => {
                 </div>
                 <div>
                   <h3 className="text-2xl font-bold text-white mb-2">Get in Touch</h3>
-                  <a 
-                    href="mailto:info@plan-aeventos.com" 
+                  <a
+                    href="mailto:wrc@internationalrangers.org"
                     className="text-xl text-white/80 hover:text-white transition-smooth"
                   >
-                    info@plan-aeventos.com
+                    wrc@internationalrangers.org
                   </a>
                 </div>
               </div>
@@ -121,18 +121,18 @@ const ContactSection = () => {
                   <Users className="w-8 h-8 text-white mr-3" />
                   <h3 className="text-2xl font-bold text-white">Event Partners</h3>
                 </div>
-                
+
                 <div className="space-y-6">
                   <div className="border-b border-white/20 pb-4">
                     <h4 className="text-xl font-semibold text-white mb-2">International Ranger Federation</h4>
                     <p className="text-white/70">Global organization connecting rangers worldwide</p>
                   </div>
-                  
+
                   <div className="border-b border-white/20 pb-4">
-                    <h4 className="text-xl font-semibold text-white mb-2">SINIGARA</h4>
+                    <h4 className="text-xl font-semibold text-white mb-2">SIGUNARA</h4>
                     <p className="text-white/70">Argentine National Parks Rangers Union</p>
                   </div>
-                  
+
                   <div>
                     <h4 className="text-xl font-semibold text-white mb-2">plan.A</h4>
                     <p className="text-white/70">Event planning and coordination specialists</p>
@@ -149,22 +149,22 @@ const ContactSection = () => {
                 Ready to Shape the Future of Conservation?
               </h3>
               <p className="text-lg text-forest-primary mb-8 max-w-3xl mx-auto">
-                Mark your calendars and prepare to be part of something extraordinary. 
+                Mark your calendars and prepare to be part of something extraordinary.
                 Together, we can protect the world's most precious natural heritage for generations to come.
               </p>
-              
+
               <div className="flex flex-col md:flex-row gap-6 justify-center items-center">
-                <Button 
-                  size="lg" 
+                <Button
+                  size="lg"
                   className="forest-gradient text-white shadow-forest hover:scale-105 transition-bounce px-8 py-4 text-lg group"
-                  onClick={() => window.location.href = 'mailto:info@plan-aeventos.com?subject=IRF World Ranger Congress 2027 Interest'}
+                  onClick={() => window.location.href = 'mailto:wrc@internationalrangers.org?subject=IRF World Ranger Congress 2027 Interest'}
                 >
                   <Send className="w-5 h-5 mr-2 group-hover:translate-x-1 transition-smooth" />
                   Register Interest
                 </Button>
-                
-                <Button 
-                  variant="outline" 
+
+                <Button
+                  variant="outline"
                   size="lg"
                   className="bg-transparent border-forest-primary text-forest-primary hover:bg-forest-mist transition-smooth px-8 py-4 text-lg group"
                 >
@@ -179,7 +179,7 @@ const ContactSection = () => {
 
       {/* Floating Conservation Icons */}
       <div className="absolute bottom-20 right-20 opacity-30">
-        <div 
+        <div
           className="text-6xl text-white/50 float-gentle"
           style={{
             transform: `translateY(${scrollY * -0.05}px)`,
@@ -189,9 +189,9 @@ const ContactSection = () => {
         </div>
       </div>
       <div className="absolute top-32 left-32 opacity-20">
-        <div 
-          className="text-4xl text-white/50 float-gentle" 
-          style={{ 
+        <div
+          className="text-4xl text-white/50 float-gentle"
+          style={{
             animationDelay: '2s',
             transform: `translateY(${scrollY * -0.03}px)`,
           }}
@@ -200,9 +200,9 @@ const ContactSection = () => {
         </div>
       </div>
       <div className="absolute bottom-40 left-20 opacity-25">
-        <div 
-          className="text-5xl text-white/50 float-gentle" 
-          style={{ 
+        <div
+          className="text-5xl text-white/50 float-gentle"
+          style={{
             animationDelay: '4s',
             transform: `translateY(${scrollY * -0.04}px)`,
           }}

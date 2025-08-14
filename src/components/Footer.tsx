@@ -5,11 +5,11 @@ const Footer = () => {
     <footer className="bg-forest-deep text-white py-12 relative overflow-hidden">
       {/* Background image */}
       <div className="absolute inset-0">
-        <div 
+        <div
           className="w-full h-full bg-cover bg-center bg-no-repeat opacity-20"
           style={{
             backgroundImage: 'url("/images/footer_background.png")',
-          }} 
+          }}
         />
       </div>
 
@@ -27,7 +27,7 @@ const Footer = () => {
             <p className="text-forest-light text-lg mb-6">
               Protecting our planet's natural heritage, one ranger at a time
             </p>
-            
+
             {/* Quick info */}
             <div className="grid md:grid-cols-3 gap-6 text-center mb-8">
               <div>
@@ -40,11 +40,11 @@ const Footer = () => {
               </div>
               <div>
                 <h4 className="font-semibold text-forest-light mb-2">Contact</h4>
-                <a 
-                  href="mailto:info@plan-aeventos.com" 
+                <a
+                  href="mailto:wrc@internationalrangers.org"
                   className="text-forest-light hover:text-white transition-smooth"
                 >
-                  info@plan-aeventos.com
+                  wrc@internationalrangers.org
                 </a>
               </div>
             </div>
@@ -59,13 +59,13 @@ const Footer = () => {
                   Made with love for conservation • {new Date().getFullYear()}
                 </p>
               </div>
-              
+
               {/* Organization logos/credits */}
               <div className="flex items-center space-x-4">
                 <span className="text-white/60 text-sm">Organized by:</span>
                 <span className="text-forest-light font-medium">IRF</span>
                 <span className="text-white/40">•</span>
-                <span className="text-forest-light font-medium">SINIGARA</span>
+                <span className="text-forest-light font-medium">SIGUNARA</span>
                 <span className="text-white/40">•</span>
                 <span className="text-forest-light font-medium">plan.A</span>
               </div>
@@ -75,7 +75,7 @@ const Footer = () => {
           {/* Conservation message */}
           <div className="mt-8 p-6 bg-white/5 rounded-lg border border-white/10 backdrop-blur-sm">
             <p className="text-forest-light text-sm italic">
-              "The ultimate goal of the ranger is to protect the wilderness and wildlife for future generations. 
+              "The ultimate goal of the ranger is to protect the wilderness and wildlife for future generations.
               Every step we take today shapes the world our children will inherit."
             </p>
           </div>
