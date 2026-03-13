@@ -40,7 +40,7 @@ const FloatingElements = () => {
   }, []);
 
   return (
-    <div className="fixed inset-0 pointer-events-none z-5 overflow-hidden">
+    <div className="fixed inset-0 z-[5] overflow-hidden pointer-events-none">
       {elements.map((element) => (
         <div
           key={element.id}

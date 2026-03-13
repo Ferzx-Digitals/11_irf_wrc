@@ -1,213 +1,222 @@
-import { useEffect, useRef, useState } from 'react';
-import { Button } from '@/components/ui/button';
-import { Mail, MapPin, Calendar, Users, Download, Send } from 'lucide-react';
+import { FormEvent, useState } from "react";
+import { Button } from "@/components/ui/button";
+import { useRevealOnScroll } from "@/hooks/useRevealOnScroll";
+import { useWindowScrollY } from "@/hooks/useWindowScrollY";
+import { Handshake, Mail, MapPin, Newspaper, Send } from "lucide-react";
+import { CONTACT_EMAIL, VENUE } from "@/constants/site";
+
+const SPONSORSHIP_PROSPECTUS = "https://tinyurl.com/3tpck2mu";
+const CONTACT_FORM_SUBMIT_URL =
+  "https://docs.google.com/forms/d/e/1FAIpQLSfCOCyNQAADG5KIr1xuEHoZ52cmSQ49lqhXXcglhCkSyvgcgA/formResponse";
+const CONTACT_FORM_ENTRY_IDS = {
+  name: "entry.161644429",
+  email: "entry.1094874600",
+  subject: "entry.296963116",
+  message: "entry.39967172",
+};
 
 const ContactSection = () => {
-  const [scrollY, setScrollY] = useState(0);
-  const [isVisible, setIsVisible] = useState(false);
-  const sectionRef = useRef<HTMLDivElement>(null);
+  const scrollY = useWindowScrollY();
+  const { ref: sectionRef, isVisible } = useRevealOnScroll<HTMLElement>(0.15);
+  const [submitting, setSubmitting] = useState(false);
+  const [status, setStatus] = useState<{ message: string; isError: boolean } | null>(null);
 
-  useEffect(() => {
-    const handleScroll = () => setScrollY(window.scrollY);
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
+  const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    setStatus(null);
+    setSubmitting(true);
 
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setIsVisible(true);
-        }
-      },
-      { threshold: 0.2 }
-    );
+    const form = event.currentTarget;
+    const data = new FormData(form);
+    const payload = new URLSearchParams();
 
-    if (sectionRef.current) {
-      observer.observe(sectionRef.current);
+    payload.append(CONTACT_FORM_ENTRY_IDS.name, String(data.get("name") ?? ""));
+    payload.append(CONTACT_FORM_ENTRY_IDS.email, String(data.get("email") ?? ""));
+    payload.append(CONTACT_FORM_ENTRY_IDS.subject, String(data.get("subject") ?? ""));
+    payload.append(CONTACT_FORM_ENTRY_IDS.message, String(data.get("message") ?? ""));
+
+    try {
+      await fetch(CONTACT_FORM_SUBMIT_URL, {
+        method: "POST",
+        mode: "no-cors",
+        body: payload,
+      });
+      setStatus({ message: "Message sent successfully! We'll get back to you soon.", isError: false });
+      form.reset();
+    } catch {
+      setStatus({ message: "Something went wrong. Please try again or email us directly.", isError: true });
+    } finally {
+      setSubmitting(false);
     }
-
-    return () => {
-      if (sectionRef.current) {
-        observer.unobserve(sectionRef.current);
-      }
-    };
-  }, []);
+  };
 
   return (
-    <section ref={sectionRef} className="relative py-32 earth-gradient overflow-hidden">
-      {/* Dynamic Background Elements */}
+    <section ref={sectionRef} className="relative overflow-hidden py-24 earth-gradient">
       <div className="absolute inset-0">
         <div
-          className="absolute top-20 left-10 w-40 h-40 rounded-full bg-forest-light opacity-10"
-          style={{
-            transform: `translateY(${scrollY * 0.08}px) scale(${1 + scrollY * 0.0001})`,
-          }}
+          className="absolute top-20 left-10 h-40 w-40 rounded-full bg-forest-light opacity-10"
+          style={{ transform: `translateY(${scrollY * 0.08}px) scale(${1 + scrollY * 0.0001})` }}
         />
         <div
-          className="absolute bottom-20 right-20 w-32 h-32 rounded-full bg-gold-warm opacity-15"
-          style={{
-            transform: `translateX(${scrollY * -0.05}px) rotate(${scrollY * 0.02}deg)`,
-          }}
-        />
-        <div
-          className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-96 h-96 rounded-full bg-sky-light opacity-5"
-          style={{
-            transform: `translateX(-50%) translateY(-50%) rotate(${scrollY * -0.01}deg)`,
-          }}
+          className="absolute bottom-20 right-20 h-32 w-32 rounded-full bg-gold-warm opacity-15"
+          style={{ transform: `translateX(${scrollY * -0.05}px) rotate(${scrollY * 0.02}deg)` }}
         />
       </div>
 
-      <div className="container mx-auto px-4 relative z-10">
-        <div className="max-w-6xl mx-auto">
-          {/* Flowing Header */}
-          <div className={`text-center mb-20 ${isVisible ? 'animate-fade-up' : 'opacity-0 translate-y-20'}`}>
-            <div className="text-white/20 text-8xl font-bold mb-4">CONNECT</div>
-            <h2 className="text-4xl md:text-6xl font-bold text-white mb-6 relative -mt-12">
-              Join the Movement
-            </h2>
-            <p className="text-xl text-white/90 max-w-3xl mx-auto leading-relaxed">
-              Be part of the global effort to protect our planet's most precious ecosystems.
-              Your voice matters in shaping the future of conservation.
+      <div className="container relative z-10 mx-auto px-4">
+        <div className="mx-auto max-w-6xl">
+          <div className={`mb-16 text-center ${isVisible ? "animate-fade-up" : "opacity-0 translate-y-20"}`}>
+            <h1 className="text-4xl font-bold text-white md:text-6xl">Contact Us</h1>
+            <p className="mx-auto mt-4 max-w-2xl text-xl text-white/85">
+              We'd love to hear from you. Get in touch with our team.
             </p>
           </div>
 
-          {/* Contact Information Flow */}
-          <div className="grid lg:grid-cols-2 gap-16 mb-20">
-            {/* Left: Contact Details */}
-            <div className={`space-y-8 ${isVisible ? 'animate-slide-in-left' : 'opacity-0 translate-x-20'}`} style={{ animationDelay: '0.2s' }}>
-              <div className="flex items-center group">
-                <div className="w-16 h-16 rounded-full bg-white/20 backdrop-blur flex items-center justify-center mr-6 group-hover:bg-white/30 transition-smooth">
-                  <Mail className="w-8 h-8 text-white" />
+          <div className="mb-16 grid gap-12 lg:grid-cols-2">
+            <div className={`${isVisible ? "animate-slide-in-left" : "opacity-0 translate-x-20"}`}>
+              <h2 className="mb-6 text-2xl font-bold text-white">Send Us a Message</h2>
+
+              {status && (
+                <div className={`mb-5 rounded-lg p-4 ${status.isError ? "bg-red-100 text-red-800" : "bg-green-100 text-green-800"}`}>
+                  {status.message}
+                </div>
+              )}
+
+              <form onSubmit={handleSubmit} className="space-y-5 rounded-3xl border border-white/20 bg-white/10 p-8 backdrop-blur">
+                <div>
+                  <label htmlFor="name" className="mb-1 block text-sm font-medium text-white/90">Full Name</label>
+                  <input
+                    id="name"
+                    name="name"
+                    required
+                    placeholder="Your full name"
+                    className="w-full rounded-lg border border-white/20 bg-white/95 px-4 py-3 text-gray-900 outline-none focus:ring-2 focus:ring-forest-primary/30"
+                  />
                 </div>
                 <div>
-                  <h3 className="text-2xl font-bold text-white mb-2">Get in Touch</h3>
-                  <a
-                    href="mailto:wrc@internationalrangers.org"
-                    className="text-xl text-white/80 hover:text-white transition-smooth"
+                  <label htmlFor="email" className="mb-1 block text-sm font-medium text-white/90">Email Address</label>
+                  <input
+                    id="email"
+                    name="email"
+                    type="email"
+                    required
+                    placeholder="your@email.com"
+                    className="w-full rounded-lg border border-white/20 bg-white/95 px-4 py-3 text-gray-900 outline-none focus:ring-2 focus:ring-forest-primary/30"
+                  />
+                </div>
+                <div>
+                  <label htmlFor="subject" className="mb-1 block text-sm font-medium text-white/90">Subject</label>
+                  <select
+                    id="subject"
+                    name="subject"
+                    className="w-full rounded-lg border border-white/20 bg-white/95 px-4 py-3 text-gray-900 outline-none focus:ring-2 focus:ring-forest-primary/30"
                   >
-                    wrc@internationalrangers.org
-                  </a>
-                </div>
-              </div>
-
-              <div className="flex items-center group">
-                <div className="w-16 h-16 rounded-full bg-white/20 backdrop-blur flex items-center justify-center mr-6 group-hover:bg-white/30 transition-smooth">
-                  <MapPin className="w-8 h-8 text-white" />
-                </div>
-                <div>
-                  <h3 className="text-2xl font-bold text-white mb-2">Location</h3>
-                  <p className="text-xl text-white/80">Puerto Iguazú, Argentina</p>
-                  <p className="text-white/60">Gateway to the Atlantic Forest</p>
-                </div>
-              </div>
-
-              <div className="flex items-center group">
-                <div className="w-16 h-16 rounded-full bg-white/20 backdrop-blur flex items-center justify-center mr-6 group-hover:bg-white/30 transition-smooth">
-                  <Calendar className="w-8 h-8 text-white" />
+                    <option>General Inquiry</option>
+                    <option>Registration</option>
+                    <option>Sponsorship</option>
+                    <option>Press &amp; Media</option>
+                    <option>Volunteering</option>
+                    <option>Other</option>
+                  </select>
                 </div>
                 <div>
-                  <h3 className="text-2xl font-bold text-white mb-2">When</h3>
-                  <p className="text-xl text-white/80">April 19-23, 2027</p>
-                  <p className="text-white/60">Five days of conservation excellence</p>
+                  <label htmlFor="message" className="mb-1 block text-sm font-medium text-white/90">Message</label>
+                  <textarea
+                    id="message"
+                    name="message"
+                    rows={5}
+                    required
+                    placeholder="How can we help you?"
+                    className="w-full resize-y rounded-lg border border-white/20 bg-white/95 px-4 py-3 text-gray-900 outline-none focus:ring-2 focus:ring-forest-primary/30"
+                  />
                 </div>
-              </div>
+                <Button type="submit" size="lg" disabled={submitting} className="forest-gradient px-8 text-white shadow-forest">
+                  <Send className="mr-2 h-5 w-5" />
+                  {submitting ? "Sending..." : "Send Message"}
+                </Button>
+              </form>
             </div>
 
-            {/* Right: Partners & Organizations */}
-            <div className={`${isVisible ? 'animate-slide-in-left' : 'opacity-0 translate-x-20'}`} style={{ animationDelay: '0.4s' }}>
-              <div className="bg-white/10 backdrop-blur rounded-3xl p-8 border border-white/20">
-                <div className="flex items-center mb-6">
-                  <Users className="w-8 h-8 text-white mr-3" />
-                  <h3 className="text-2xl font-bold text-white">Event Partners</h3>
-                </div>
+            <div className={`${isVisible ? "animate-slide-in-left" : "opacity-0 translate-x-20"}`}>
+              <h2 className="mb-6 text-2xl font-bold text-white">Get in Touch</h2>
 
-                <div className="space-y-6">
-                  <div className="border-b border-white/20 pb-4">
-                    <h4 className="text-xl font-semibold text-white mb-2">International Ranger Federation</h4>
-                    <p className="text-white/70">Global organization connecting rangers worldwide</p>
+              <div className="mb-8 space-y-4 rounded-3xl border border-white/20 bg-white/10 p-6 backdrop-blur">
+                <div className="flex items-center gap-3">
+                  <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-white/20">
+                    <Mail className="h-5 w-5 text-white" />
                   </div>
-
-                  <div className="border-b border-white/20 pb-4">
-                    <h4 className="text-xl font-semibold text-white mb-2">SIGUNARA</h4>
-                    <p className="text-white/70">Argentine National Parks Rangers Union</p>
-                  </div>
-
                   <div>
-                    <h4 className="text-xl font-semibold text-white mb-2">plan.A</h4>
-                    <p className="text-white/70">Event planning and coordination specialists</p>
+                    <p className="text-sm text-white/70">Email</p>
+                    <a href={`mailto:${CONTACT_EMAIL}`} className="font-semibold text-white hover:underline">{CONTACT_EMAIL}</a>
+                  </div>
+                </div>
+
+                <div className="flex items-center gap-3">
+                  <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-white/20">
+                    <MapPin className="h-5 w-5 text-white" />
+                  </div>
+                  <div>
+                    <p className="text-sm text-white/70">Venue</p>
+                    <p className="font-semibold text-white">{VENUE.name}</p>
+                    <p className="text-sm text-white/80">{VENUE.city}, {VENUE.state}, {VENUE.country}</p>
                   </div>
                 </div>
               </div>
-            </div>
-          </div>
 
-          {/* Call to Action Flow */}
-          <div className={`text-center ${isVisible ? 'animate-fade-up' : 'opacity-0 translate-y-20'}`} style={{ animationDelay: '0.6s' }}>
-            <div className="bg-white/95 backdrop-blur rounded-3xl p-12 shadow-floating border border-white/50">
-              <h3 className="text-3xl font-bold text-forest-deep mb-6">
-                Ready to Shape the Future of Conservation?
-              </h3>
-              <p className="text-lg text-forest-primary mb-8 max-w-3xl mx-auto">
-                Mark your calendars and prepare to be part of something extraordinary.
-                Together, we can protect the world's most precious natural heritage for generations to come.
-              </p>
+              <div className="space-y-4">
+                <article className="rounded-2xl border border-white/20 bg-white/10 p-5 backdrop-blur">
+                  <div className="flex items-start gap-3">
+                    <Mail className="mt-1 h-5 w-5 text-white" />
+                    <div>
+                      <h3 className="font-bold text-white">General Inquiries</h3>
+                      <p className="mb-2 text-sm text-white/80">Questions about the congress, registration, or logistics.</p>
+                      <a href={`mailto:${CONTACT_EMAIL}`} className="text-sm font-semibold text-white hover:underline">{CONTACT_EMAIL}</a>
+                    </div>
+                  </div>
+                </article>
 
-              <div className="flex flex-col md:flex-row gap-6 justify-center items-center">
-                <Button
-                  size="lg"
-                  className="forest-gradient text-white shadow-forest hover:scale-105 transition-bounce px-8 py-4 text-lg group"
-                  onClick={() => window.location.href = 'mailto:wrc@internationalrangers.org?subject=IRF World Ranger Congress 2027 Interest'}
-                >
-                  <Send className="w-5 h-5 mr-2 group-hover:translate-x-1 transition-smooth" />
-                  Register Interest
-                </Button>
+                <article className="rounded-2xl border border-white/20 bg-white/10 p-5 backdrop-blur">
+                  <div className="flex items-start gap-3">
+                    <Handshake className="mt-1 h-5 w-5 text-white" />
+                    <div>
+                      <h3 className="font-bold text-white">Sponsorship</h3>
+                      <p className="mb-2 text-sm text-white/80">Interested in sponsoring the congress? Get the sponsorship prospectus.</p>
+                      <div className="flex flex-wrap items-center gap-3">
+                        <a href={`mailto:${CONTACT_EMAIL}`} className="text-sm font-semibold text-white hover:underline">{CONTACT_EMAIL}</a>
+                        <a href={SPONSORSHIP_PROSPECTUS} target="_blank" rel="noreferrer" className="text-sm font-semibold text-white hover:underline">
+                          Download Prospectus →
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+                </article>
 
-                <Button
-                  variant="outline"
-                  size="lg"
-                  className="bg-transparent border-forest-primary text-forest-primary hover:bg-forest-mist transition-smooth px-8 py-4 text-lg group"
-                >
-                  <Download className="w-5 h-5 mr-2 group-hover:translate-y-1 transition-smooth" />
-                  Download Poster
-                </Button>
+                <article className="rounded-2xl border border-white/20 bg-white/10 p-5 backdrop-blur">
+                  <div className="flex items-start gap-3">
+                    <Newspaper className="mt-1 h-5 w-5 text-white" />
+                    <div>
+                      <h3 className="font-bold text-white">Press &amp; Media</h3>
+                      <p className="mb-2 text-sm text-white/80">Media inquiries, press accreditation, and interview requests.</p>
+                      <a href={`mailto:${CONTACT_EMAIL}`} className="text-sm font-semibold text-white hover:underline">{CONTACT_EMAIL}</a>
+                    </div>
+                  </div>
+                </article>
               </div>
             </div>
           </div>
-        </div>
-      </div>
 
-      {/* Floating Conservation Icons */}
-      <div className="absolute bottom-20 right-20 opacity-30">
-        <div
-          className="text-6xl text-white/50 float-gentle"
-          style={{
-            transform: `translateY(${scrollY * -0.05}px)`,
-          }}
-        >
-          🦎
-        </div>
-      </div>
-      <div className="absolute top-32 left-32 opacity-20">
-        <div
-          className="text-4xl text-white/50 float-gentle"
-          style={{
-            animationDelay: '2s',
-            transform: `translateY(${scrollY * -0.03}px)`,
-          }}
-        >
-          🐒
-        </div>
-      </div>
-      <div className="absolute bottom-40 left-20 opacity-25">
-        <div
-          className="text-5xl text-white/50 float-gentle"
-          style={{
-            animationDelay: '4s',
-            transform: `translateY(${scrollY * -0.04}px)`,
-          }}
-        >
-          🦋
+          <div className={`${isVisible ? "animate-fade-up" : "opacity-0 translate-y-20"}`}>
+            <h2 className="mb-6 text-center text-3xl font-bold text-white">Find Us</h2>
+            <div className="overflow-hidden rounded-3xl border border-white/20 bg-white/10 shadow-floating backdrop-blur">
+              <iframe
+                title="Congress Venue Location"
+                src={VENUE.mapEmbed}
+                className="h-[420px] w-full"
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+              />
+            </div>
+          </div>
         </div>
       </div>
     </section>

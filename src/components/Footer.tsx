@@ -1,4 +1,5 @@
 import { Heart, Leaf } from 'lucide-react';
+import { CONTACT_EMAIL } from "@/constants/site";
 
 const Footer = () => {
   return (
@@ -41,10 +42,10 @@ const Footer = () => {
               <div>
                 <h4 className="font-semibold text-forest-light mb-2">Contact</h4>
                 <a
-                  href="mailto:wrc@internationalrangers.org"
+                  href={`mailto:${CONTACT_EMAIL}`}
                   className="text-forest-light hover:text-white transition-smooth"
                 >
-                  wrc@internationalrangers.org
+                  {CONTACT_EMAIL}
                 </a>
               </div>
             </div>
