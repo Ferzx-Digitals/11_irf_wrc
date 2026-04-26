@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { CalendarDays, ExternalLink, MapPin, Trees } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import HistoryTimeline from "@/components/HistoryTimeline";
 import { getHomeContent } from "@/content/home";
 import { defaultLocale } from "@/i18n/locales";
 
@@ -134,11 +135,11 @@ const HomeContentSections = () => {
       <section className="bg-background py-24">
         <div className="container mx-auto px-4">
           <h3 className="mb-10 text-center text-4xl font-bold text-forest-deep">IRF Regions</h3>
-          <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-3">
+          <div className="flex snap-x snap-mandatory gap-6 overflow-x-auto py-4 [-webkit-overflow-scrolling:touch] [scrollbar-color:hsl(var(--forest-primary)/0.5)_transparent] [scrollbar-width:thin] [&::-webkit-scrollbar-thumb]:rounded-full [&::-webkit-scrollbar-thumb]:bg-forest-primary/40 [&::-webkit-scrollbar-track]:bg-transparent [&::-webkit-scrollbar]:h-2">
             {content.regions.map((region) => (
               <article
                 key={region.title}
-                className="group relative h-64 overflow-hidden rounded-2xl border border-forest-light/30 bg-card/95 shadow-forest transition-smooth hover:-translate-y-1 hover:shadow-floating"
+                className="group relative h-64 w-72 flex-shrink-0 snap-start overflow-hidden rounded-2xl border border-forest-light/30 bg-card/95 shadow-forest transition-smooth hover:-translate-y-1 hover:shadow-floating sm:w-80 lg:w-96"
               >
                 <img
                   src={region.coverUrl}
@@ -155,23 +156,8 @@ const HomeContentSections = () => {
         </div>
       </section>
 
-      <section className="bg-forest-mist/30 py-24">
-        <div className="container mx-auto px-4">
-          <h3 className="mb-10 text-center text-4xl font-bold text-forest-deep">{content.history.title}</h3>
-          <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-5">
-            {content.history.congresses.map((item) => (
-              <article key={`${item.edition}-${item.year}`} className="rounded-2xl border border-forest-light/30 bg-card/90 p-5 shadow-forest">
-                <div className="mb-3 flex items-center justify-between">
-                  <span className="rounded-full bg-forest-deep px-2.5 py-1 text-xs font-semibold text-white">{item.edition}</span>
-                  <span className="text-sm font-semibold text-earth-brown">{item.year}</span>
-                </div>
-                <p className="text-lg font-semibold text-forest-deep">{item.location}</p>
-                <p className="mt-1 text-sm text-foreground/70">{item.country}</p>
-                <div className="mt-4 h-1 w-full rounded-full bg-gradient-to-r from-forest-primary/30 via-gold-warm/40 to-forest-primary/20" />
-              </article>
-            ))}
-          </div>
-        </div>
+      <section className="bg-forest-mist/30">
+        <HistoryTimeline title={content.history.title} congresses={content.history.congresses} />
       </section>
 
       <section className="bg-forest-deep py-20 text-white">
@@ -195,9 +181,9 @@ const HomeContentSections = () => {
       <section className="bg-background py-24">
         <div className="container mx-auto px-4">
           <h3 className="mb-10 text-center text-4xl font-bold text-forest-deep">{content.organizers.title}</h3>
-          <div className="mx-auto grid max-w-5xl gap-6 md:grid-cols-2">
+          <div className="mx-auto grid max-w-5xl gap-6 md:grid-cols-2 md:grid-rows-[auto_1fr]">
             {content.organizers.items.map((org) => (
-              <article key={org.shortName} className="group overflow-hidden rounded-3xl border border-forest-light/30 bg-card/95 shadow-forest transition-smooth hover:-translate-y-1 hover:shadow-floating">
+              <article key={org.shortName} className="group overflow-hidden rounded-3xl border border-forest-light/30 bg-card/95 shadow-forest transition-smooth hover:-translate-y-1 hover:shadow-floating md:row-span-2 md:grid md:grid-rows-subgrid">
                 <div className="relative border-b border-forest-light/20 bg-gradient-to-r from-forest-mist/70 to-background px-7 py-6">
                   <div className="absolute -right-6 -top-6 h-24 w-24 rounded-full bg-forest-primary/10" />
                   <div className="relative flex items-start gap-4">
@@ -225,11 +211,11 @@ const HomeContentSections = () => {
       <section className="bg-forest-mist/25 py-24">
         <div className="container mx-auto px-4">
           <h3 className="mb-10 text-center text-4xl font-bold text-forest-deep">{content.team.title}</h3>
-          <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+          <div className="flex snap-x snap-mandatory gap-5 overflow-x-auto py-4 [-webkit-overflow-scrolling:touch] [scrollbar-color:hsl(var(--forest-primary)/0.5)_transparent] [scrollbar-width:thin] [&::-webkit-scrollbar-thumb]:rounded-full [&::-webkit-scrollbar-thumb]:bg-forest-primary/40 [&::-webkit-scrollbar-track]:bg-transparent [&::-webkit-scrollbar]:h-2">
             {content.team.members.map((member) => (
               <article
                 key={`${member.name}-${member.role}`}
-                className="group relative h-80 overflow-hidden rounded-2xl border border-forest-light/30 bg-card/95 shadow-forest transition-smooth hover:-translate-y-1 hover:shadow-floating"
+                className="group relative h-80 w-60 flex-shrink-0 snap-start overflow-hidden rounded-2xl border border-forest-light/30 bg-card/95 shadow-forest transition-smooth hover:-translate-y-1 hover:shadow-floating sm:w-64 lg:w-72"
               >
                 <img
                   src={member.image ?? "/placeholder.svg"}

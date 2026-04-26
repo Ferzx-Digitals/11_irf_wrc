@@ -22,7 +22,7 @@ const Register = () => {
         subtitle="Secure your place at the 11th IRF World Ranger Congress"
       />
 
-        <p className="mb-6 text-lg text-forest-primary">
+        <p className="mb-6 text-center text-lg text-forest-primary">
           Secure your place at the 11th IRF World Ranger Congress.
         </p>
 
@@ -47,19 +47,19 @@ const Register = () => {
         </div>
 
         <div className="grid gap-5 md:grid-cols-3">
-          <article className="border-l-4 border-forest-primary/70 pl-4">
+          <article className="border-t-4 border-forest-primary/70 pt-4 text-center">
             <h3 className="mb-2 text-lg font-bold text-forest-deep">Capacity</h3>
             <p className="text-sm text-forest-primary">Maximum 600 attendees total</p>
             <p className="text-sm text-forest-primary">75 delegates per IRF region</p>
             <p className="text-sm text-forest-primary">150 for host region (Argentina)</p>
           </article>
-          <article className="border-l-4 border-forest-primary/70 pl-4">
+          <article className="border-t-4 border-forest-primary/70 pt-4 text-center">
             <h3 className="mb-2 text-lg font-bold text-forest-deep">Rules</h3>
             <p className="text-sm text-forest-primary">Registration is individual and personal</p>
             <p className="text-sm text-forest-primary">Non-transferable to another person</p>
             <p className="text-sm text-forest-primary">No group registrations</p>
           </article>
-          <article className="border-l-4 border-forest-primary/70 pl-4">
+          <article className="border-t-4 border-forest-primary/70 pt-4 text-center">
             <h3 className="mb-2 text-lg font-bold text-forest-deep">Spouses and Partners</h3>
             <p className="text-sm text-forest-primary">Welcome to attend the congress</p>
             <p className="text-sm text-forest-primary">Same $395 registration fee</p>

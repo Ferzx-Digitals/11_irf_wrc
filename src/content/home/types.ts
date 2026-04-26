@@ -33,6 +33,10 @@ export interface CongressHistory {
   location: string;
   country: string;
   emoji: string;
+  flag: string;
+  color: string;
+  image: string;
+  credit?: string;
 }
 
 export interface HomeContent {

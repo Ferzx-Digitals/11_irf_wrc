@@ -1,4 +1,4 @@
-import { Heart, Leaf } from 'lucide-react';
+import { Leaf } from 'lucide-react';
 import { CONTACT_EMAIL } from "@/constants/site";
 
 const Footer = () => {
@@ -54,13 +54,6 @@ const Footer = () => {
           {/* Divider */}
           <div className="border-t border-white/20 pt-8">
             <div className="flex flex-col md:flex-row justify-between items-center">
-              <div className="flex items-center mb-4 md:mb-0">
-                <Heart className="w-4 h-4 text-red-400 mr-2" />
-                <p className="text-white/80">
-                  Made with love for conservation • {new Date().getFullYear()}
-                </p>
-              </div>
-
               {/* Organization logos/credits */}
               <div className="flex items-center space-x-4">
                 <span className="text-white/60 text-sm">Organized by:</span>

@@ -28,20 +28,25 @@ const AboutEvents = () => {
         </div>
 
         <h2 className="mb-6 text-3xl font-bold text-forest-deep">What to Expect</h2>
-        <div className="grid gap-5 md:grid-cols-2">
-          {congressActivities.map((activity) => (
-            <article key={activity.title} className="overflow-hidden rounded-2xl border border-forest-light/30 bg-card/95 shadow-forest">
-              <img
-                src={`/images/images/congress-introduction/${encodeURIComponent(activity.image)}`}
-                alt={activity.title}
-                className="h-44 w-full object-cover"
-              />
-              <div className="p-6">
-                <h3 className="mb-2 text-xl font-bold text-forest-deep">{activity.title}</h3>
-                <p className="text-forest-primary">{activity.description}</p>
-              </div>
-            </article>
-          ))}
+        <div className="group relative -mx-4 overflow-hidden px-4 pb-4">
+          <div className="flex w-max gap-6 animate-marquee group-hover:[animation-play-state:paused]">
+            {[...congressActivities, ...congressActivities].map((activity, index) => (
+              <article
+                key={`${activity.title}-${index}`}
+                className="flex w-[320px] shrink-0 flex-col overflow-hidden rounded-2xl border border-forest-light/30 bg-card/95 shadow-forest sm:w-[420px] md:w-[480px] lg:w-[520px]"
+              >
+                <img
+                  src={`/images/images/congress-introduction/${encodeURIComponent(activity.image)}`}
+                  alt={activity.title}
+                  className="h-72 w-full object-cover sm:h-80 md:h-96"
+                />
+                <div className="p-8">
+                  <h3 className="mb-3 text-2xl font-bold text-forest-deep">{activity.title}</h3>
+                  <p className="text-base text-forest-primary">{activity.description}</p>
+                </div>
+              </article>
+            ))}
+          </div>
         </div>
     </PageShell>
   );

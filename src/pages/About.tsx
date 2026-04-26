@@ -30,54 +30,55 @@ const About = () => {
       </section>
 
       <div className="container mx-auto px-4">
-        <div className="mx-auto mb-12 max-w-5xl">
-          <h2 className="mb-4 border-l-4 border-forest-primary pl-4 text-3xl font-bold text-forest-deep">
-            Rangers: Essential Workers for Our Planet
-          </h2>
-          <p className="mb-3 text-forest-primary">
-            Rangers are some of the most essential workers on the planet. They protect and manage the
-            world&apos;s protected and conserved areas, covering over 15% of the Earth&apos;s land surface and
-            8% of our oceans.
-          </p>
-          <p className="text-forest-primary">
-            Yet their contributions are often undervalued, their working conditions poor, and their needs
-            overlooked. The IRF World Ranger Congress is held in a different part of the world every 3-4
-            years, bringing together rangers to share experiences, build networks, and advance the profession.
-          </p>
-        </div>
-
-        <div className="mx-auto mb-12 max-w-5xl">
-          <h2 className="mb-4 border-l-4 border-forest-primary pl-4 text-3xl font-bold text-forest-deep">
-            About the 11th IRF World Ranger Congress
-          </h2>
-          <p className="mb-3 text-forest-primary">
-            For the first time, the World Ranger Congress comes to Argentina, set against the stunning backdrop
-            of Iguazu Falls and the Atlantic Forest. This historic event marks a milestone for Latin American
-            conservation and ranger communities.
-          </p>
-          <p className="mb-3 text-forest-primary">
-            Puerto Iguazu sits at the Triple Frontier - where Argentina, Brazil, and Paraguay meet - making it a
-            symbol of international cooperation in conservation. The congress will produce the Iguazu Declaration,
-            a landmark statement emphasizing the role of rangers in nature conservation.
-          </p>
-          <p className="text-forest-primary">600 delegates from over 50 countries will gather for five days.</p>
-        </div>
-
-        <div className="mb-12 grid gap-6 md:grid-cols-2">
+        <div className="mx-auto mb-12 grid max-w-6xl items-center gap-8 md:grid-cols-2">
+          <div>
+            <h2 className="mb-4 border-l-4 border-forest-primary pl-4 text-3xl font-bold text-forest-deep">
+              Rangers: Essential Workers for Our Planet
+            </h2>
+            <p className="mb-3 text-forest-primary">
+              Rangers are some of the most essential workers on the planet. They protect and manage the
+              world&apos;s protected and conserved areas, covering over 15% of the Earth&apos;s land surface and
+              8% of our oceans.
+            </p>
+            <p className="text-forest-primary">
+              Yet their contributions are often undervalued, their working conditions poor, and their needs
+              overlooked. The IRF World Ranger Congress is held in a different part of the world every 3-4
+              years, bringing together rangers to share experiences, build networks, and advance the profession.
+            </p>
+          </div>
           <article className="overflow-hidden rounded-3xl border border-forest-light/30 shadow-forest">
             <img
               src="/images/images/congress-introduction/Ranger Experiences.jpg"
               alt="Ranger experiences"
-              className="h-64 w-full object-cover"
+              className="h-72 w-full object-cover md:h-96"
             />
           </article>
-          <article className="overflow-hidden rounded-3xl border border-forest-light/30 shadow-forest">
+        </div>
+
+        <div className="mx-auto mb-12 grid max-w-6xl items-center gap-8 md:grid-cols-2">
+          <article className="order-last overflow-hidden rounded-3xl border border-forest-light/30 shadow-forest md:order-first">
             <img
               src="/images/images/congress-introduction/Ranger Declaration.jpg"
               alt="Ranger declaration"
-              className="h-64 w-full object-cover"
+              className="h-72 w-full object-cover md:h-96"
             />
           </article>
+          <div>
+            <h2 className="mb-4 border-l-4 border-forest-primary pl-4 text-3xl font-bold text-forest-deep">
+              About the 11th IRF World Ranger Congress
+            </h2>
+            <p className="mb-3 text-forest-primary">
+              For the first time, the World Ranger Congress comes to Argentina, set against the stunning backdrop
+              of Iguazu Falls and the Atlantic Forest. This historic event marks a milestone for Latin American
+              conservation and ranger communities.
+            </p>
+            <p className="mb-3 text-forest-primary">
+              Puerto Iguazu sits at the Triple Frontier - where Argentina, Brazil, and Paraguay meet - making it a
+              symbol of international cooperation in conservation. The congress will produce the Iguazu Declaration,
+              a landmark statement emphasizing the role of rangers in nature conservation.
+            </p>
+            <p className="text-forest-primary">600 delegates from over 50 countries will gather for five days.</p>
+          </div>
         </div>
 
         <div className="mb-12 grid gap-6 md:grid-cols-2 xl:grid-cols-4">
