@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { ArrowLeft, ArrowRight, Download } from "lucide-react";
+import { ArrowLeft, ArrowRight, Download, ExternalLink, Newspaper, PlayCircle } from "lucide-react";
 import useEmblaCarousel from "embla-carousel-react";
 import PageHeroBanner from "@/components/common/PageHeroBanner";
 import {
@@ -42,6 +42,57 @@ const pressReleases = [
     date: "April 2026",
     summary:
       "Speakers and workshop leaders are invited to submit expressions of interest in English, Spanish, or French.",
+  },
+];
+
+const mediaCoverage = [
+  {
+    source: "Argentina.gob.ar",
+    title: "Argentina será por primera vez sede del Congreso Mundial de Guardaparques",
+    url: "https://www.argentina.gob.ar/noticias/argentina-sera-por-primera-vez-sede-del-congreso-mundial-de-guardaparques",
+    type: "Article",
+  },
+  {
+    source: "Noticias Argentinas",
+    title: "Argentina será sede por primera vez del Congreso Mundial de Guardaparques en 2027",
+    url: "https://noticiasargentinas.com/sociedad/argentina-sera-sede-por-primera-vez-del-congreso-mundial-de-guardaparques-en-2027_a69ef56907825f88153579909",
+    type: "Article",
+  },
+  {
+    source: "Ámbito",
+    title: "Argentina será sede por primera vez del Congreso Mundial de Guardaparques",
+    url: "https://www.ambito.com/informacion-general/argentina-sera-sede-primera-vez-del-congreso-mundial-guardaparques-n6271209",
+    type: "Article",
+  },
+  {
+    source: "Clarín",
+    title: "Argentina será sede por primera vez del Congreso Mundial de Guardaparques",
+    url: "https://www.clarin.com/sociedad/argentina-sede-primera-vez-congreso-mundial-guardaparques-reuniran-puerto-iguazu_0_LvCRPVi4Ex.html",
+    type: "Article",
+  },
+  {
+    source: "Infobae",
+    title: "Por primera vez, Argentina realizará el Congreso Mundial de Guardaparques",
+    url: "https://www.infobae.com/sociedad/2026/04/27/por-primera-vez-argentina-realizara-el-congreso-mundial-de-guardaparques-puerto-iguazu-fue-la-sede-elegida/",
+    type: "Article",
+  },
+  {
+    source: "Cadena 3",
+    title: "Argentina acogerá el Congreso Mundial de Guardaparques en 2027 en Iguazú",
+    url: "https://www.cadena3.com/noticia/sociedad/argentina-acogera-el-congreso-mundial-de-guardaparques-en-2027-en-iguazu_545551",
+    type: "Article",
+  },
+  {
+    source: "Solo Para Viajeros",
+    title: "Argentina será por primera vez sede del Congreso Mundial de Guardaparques",
+    url: "https://soloparaviajeros.pe/argentina-sera-por-primera-vez-sede-del-congreso-mundial-de-guardaparques/",
+    type: "Article",
+  },
+  {
+    source: "YouTube",
+    title: "World Ranger Congress media coverage",
+    url: "https://youtu.be/z-DFHIB1TDQ?si=phh-f2w9pIFQK8RX",
+    type: "Video",
   },
 ];
 
@@ -141,7 +192,7 @@ const PhotoGallery = () => {
               key={i}
               className="min-w-0 shrink-0 grow-0 basis-full pl-4 first:pl-0 sm:basis-1/2 lg:basis-1/3 xl:basis-1/4"
             >
-              <div className="aspect-square overflow-hidden rounded-2xl border border-forest-light/30 bg-forest-mist shadow-forest">
+              <div className="h-[260px] overflow-hidden rounded-2xl border border-forest-light/30 bg-forest-mist shadow-forest sm:h-[300px] lg:h-[320px]">
                 <img
                   src={`/images/images/photo_gallery/${i}.jpg`}
                   alt={`Congress photo ${i}`}
@@ -173,6 +224,50 @@ const PhotoGallery = () => {
         >
           <ArrowRight className="h-4 w-4" />
         </Button>
+      </div>
+    </div>
+  );
+};
+
+const MediaCoverageCarousel = () => {
+  const [isPaused, setIsPaused] = useState(false);
+
+  return (
+    <div
+      className="group overflow-hidden"
+      onMouseEnter={() => setIsPaused(true)}
+      onMouseLeave={() => setIsPaused(false)}
+      onFocus={() => setIsPaused(true)}
+      onBlur={() => setIsPaused(false)}
+    >
+      <div
+        className="flex w-max gap-5 pb-4"
+        style={{ animation: "media-coverage-scroll 42s linear infinite", animationPlayState: isPaused ? "paused" : "running" }}
+      >
+        {[...mediaCoverage, ...mediaCoverage].map((item, index) => {
+          const Icon = item.type === "Video" ? PlayCircle : Newspaper;
+
+          return (
+            <a
+              key={`${item.source}-${index}`}
+              href={item.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group/card flex min-h-[220px] w-72 flex-shrink-0 flex-col rounded-2xl border border-forest-light/30 bg-card/95 p-5 shadow-forest transition-smooth hover:-translate-y-1 hover:shadow-floating sm:w-80 lg:w-96"
+            >
+              <div className="mb-4 flex items-center justify-between gap-3">
+                <span className="inline-flex items-center gap-2 rounded-full bg-forest-mist px-3 py-1 text-xs font-semibold text-forest-primary">
+                  <Icon className="h-3.5 w-3.5" />
+                  {item.type}
+                </span>
+                <ExternalLink className="h-4 w-4 text-forest-primary/60 transition-smooth group-hover/card:text-forest-primary" />
+              </div>
+              <p className="mb-2 text-sm font-semibold text-earth-brown">{item.source}</p>
+              <h3 className="flex-1 text-base font-bold leading-snug text-forest-deep">{item.title}</h3>
+              <p className="mt-5 text-sm font-semibold text-forest-primary">Open coverage</p>
+            </a>
+          );
+        })}
       </div>
     </div>
   );
@@ -268,6 +363,15 @@ const Press = () => {
               </article>
             ))}
           </div>
+        </div>
+
+        {/* Media Coverage */}
+        <div className="mb-16">
+          <h2 className="mb-3 text-center text-3xl font-bold text-forest-deep">Media Coverage</h2>
+          <p className="mx-auto mb-10 max-w-2xl text-center text-forest-primary">
+            Recent coverage of Argentina hosting the 11th IRF World Ranger Congress.
+          </p>
+          <MediaCoverageCarousel />
         </div>
 
         {/* Photo Gallery */}

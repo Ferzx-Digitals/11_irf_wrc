@@ -1,6 +1,13 @@
 export interface CongressScheduleDay {
   day: string;
   events: string;
+  items: CongressScheduleItem[];
+}
+
+export interface CongressScheduleItem {
+  title: string;
+  type: "meal" | "plenary" | "workshop" | "meeting" | "field" | "free" | "registration";
+  detail?: string;
 }
 
 export interface CongressActivity {
@@ -27,12 +34,69 @@ export interface TouristAttraction {
 }
 
 export const congressSchedule: CongressScheduleDay[] = [
-  { day: "Friday 18 April", events: "Arrival & Registration, Welcome Reception" },
-  { day: "Saturday 19 April", events: "Opening Ceremony, Plenary Sessions, Cultural Night" },
-  { day: "Sunday 20 April", events: "Plenary Sessions, Concurrent Workshops, Press Conference" },
-  { day: "Monday 21 April", events: "Field Trips (Full Day)" },
-  { day: "Tuesday 22 April", events: "Plenary Sessions, Open Discussions, Cultural Night" },
-  { day: "Wednesday 23 April", events: "Closing Ceremony, Iguazu Declaration, Farewell" },
+  {
+    day: "Day 1: Monday 19 April 2027",
+    events: "Registration open all day, Moonlight Tour to Iguazu",
+    items: [
+      {
+        title: "Registration",
+        type: "registration",
+        detail: "Registration will be open all day for participants arriving at different times of the day.",
+      },
+      { title: "Moonlight Tour to Iguazu", type: "field" },
+    ],
+  },
+  {
+    day: "Day 2: Tuesday 20 April 2027",
+    events: "Coffee break, Plenary 1, Plenary 2, Lunch break, Workshops 1-6, Regional meetings, Evening free",
+    items: [
+      { title: "Coffee break", type: "meal" },
+      { title: "Plenary 1", type: "plenary" },
+      { title: "Plenary 2", type: "plenary" },
+      { title: "Lunch break", type: "meal" },
+      { title: "Workshops", type: "workshop", detail: "Workshop 1, Workshop 2, Workshop 3, Workshop 4, Workshop 5, Workshop 6." },
+      { title: "Coffee break", type: "meal" },
+      {
+        title: "6 x Regional Meetings",
+        type: "meeting",
+        detail: "Oceania, Europe, North America, Asia, Africa, Central and South America.",
+      },
+      { title: "Evening free", type: "free" },
+    ],
+  },
+  {
+    day: "Day 3: Wednesday 21 April 2027",
+    events: "Breakfast, Coffee break, Plenaries 3-5, Lunch break, Workshops 7-12",
+    items: [
+      { title: "Breakfast", type: "meal" },
+      { title: "Coffee break", type: "meal" },
+      { title: "Plenary 3", type: "plenary" },
+      { title: "Plenary 4", type: "plenary" },
+      { title: "Plenary 5", type: "plenary" },
+      { title: "Lunch break", type: "meal" },
+      { title: "Workshops", type: "workshop", detail: "Workshop 7, Workshop 8, Workshop 9, Workshop 10, Workshop 11, Workshop 12." },
+      { title: "Coffee break", type: "meal" },
+    ],
+  },
+  {
+    day: "Day 4: Thursday 22 April 2027",
+    events: "Breakfast, Field trips to Iguazu Falls, Evening free",
+    items: [
+      { title: "Breakfast", type: "meal" },
+      { title: "Field trips", type: "field", detail: "Iguazu Falls." },
+      { title: "Evening free", type: "free" },
+    ],
+  },
+  {
+    day: "Day 5: Friday 23 April 2027",
+    events: "Breakfast, Plenary 6, Coffee break, Lunch break",
+    items: [
+      { title: "Breakfast", type: "meal", detail: "07:00-08:00." },
+      { title: "Plenary 6", type: "plenary" },
+      { title: "Coffee break", type: "meal" },
+      { title: "Lunch break", type: "meal" },
+    ],
+  },
 ];
 
 export const congressActivities: CongressActivity[] = [

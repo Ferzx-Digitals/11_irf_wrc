@@ -6,7 +6,9 @@ interface PageHeroBannerProps {
   imageSrc: string;
   imageAlt?: string;
   overlayClassName?: string;
+  sectionClassName?: string;
   containerClassName?: string;
+  imageClassName?: string;
   align?: "left" | "right";
   mirrored?: boolean;
 }
@@ -17,16 +19,18 @@ const PageHeroBanner = ({
   imageSrc,
   imageAlt = "",
   overlayClassName,
+  sectionClassName,
   containerClassName,
+  imageClassName,
   align = "left",
   mirrored = false,
 }: PageHeroBannerProps) => {
   return (
-    <section className="relative mb-16 h-[340px] overflow-hidden md:h-[420px]">
+    <section className={cn("relative mb-16 h-[340px] overflow-hidden md:h-[420px]", sectionClassName)}>
       <img
         src={imageSrc}
         alt={imageAlt}
-        className={cn("absolute inset-0 h-full w-full object-cover", mirrored && "-scale-x-100")}
+        className={cn("absolute inset-0 h-full w-full object-cover", imageClassName, mirrored && "-scale-x-100")}
       />
       <div className={cn("absolute inset-0 bg-black/60", overlayClassName)} />
       <div

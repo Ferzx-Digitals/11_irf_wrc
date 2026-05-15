@@ -6,6 +6,15 @@ import HistoryTimeline from "@/components/HistoryTimeline";
 import { getHomeContent } from "@/content/home";
 import { defaultLocale } from "@/i18n/locales";
 
+const getInitials = (name: string) =>
+  name
+    .split(" ")
+    .filter(Boolean)
+    .slice(0, 2)
+    .map((part) => part[0])
+    .join("")
+    .toUpperCase();
+
 const HomeContentSections = () => {
   const content = getHomeContent(defaultLocale);
   const congressDate = new Date("2027-04-19T09:00:00-03:00").getTime();
@@ -48,7 +57,7 @@ const HomeContentSections = () => {
                   {paragraph}
                 </p>
               ))}
-              <Link to="/teams" className="mt-8 inline-flex">
+              <Link to="/about" className="mt-8 inline-flex">
                 <Button className="forest-gradient text-primary-foreground">Learn More</Button>
               </Link>
             </div>
@@ -132,8 +141,22 @@ const HomeContentSections = () => {
         </div>
       </section>
 
-      <section className="bg-background py-24">
-        <div className="container mx-auto px-4">
+      <section className="relative overflow-hidden bg-gradient-to-b from-background via-forest-mist/20 to-background py-24">
+        <img
+          src="/images/home/24.png"
+          alt=""
+          aria-hidden="true"
+          className="pointer-events-none absolute -left-16 top-2 h-40 w-auto -scale-x-100 rotate-[-12deg] object-contain brightness-0 opacity-[0.12] md:left-8 md:top-6 md:h-52"
+          onError={(event) => { event.currentTarget.style.display = "none"; }}
+        />
+        <img
+          src="/images/home/22.png"
+          alt=""
+          aria-hidden="true"
+          className="pointer-events-none absolute -right-28 top-2 h-[520px] w-auto brightness-0 opacity-[0.12] md:-right-10 md:-top-6 md:h-[640px]"
+          onError={(event) => { event.currentTarget.style.display = "none"; }}
+        />
+        <div className="container relative z-10 mx-auto px-4">
           <h3 className="mb-10 text-center text-4xl font-bold text-forest-deep">IRF Regions</h3>
           <div className="flex snap-x snap-mandatory gap-6 overflow-x-auto py-4 [-webkit-overflow-scrolling:touch] [scrollbar-color:hsl(var(--forest-primary)/0.5)_transparent] [scrollbar-width:thin] [&::-webkit-scrollbar-thumb]:rounded-full [&::-webkit-scrollbar-thumb]:bg-forest-primary/40 [&::-webkit-scrollbar-track]:bg-transparent [&::-webkit-scrollbar]:h-2">
             {content.regions.map((region) => (
@@ -178,8 +201,22 @@ const HomeContentSections = () => {
         </div>
       </section>
 
-      <section className="bg-background py-24">
-        <div className="container mx-auto px-4">
+      <section className="relative overflow-hidden bg-background py-24">
+        <img
+          src="/images/home/14.png"
+          alt=""
+          aria-hidden="true"
+          className="pointer-events-none absolute -left-14 bottom-[-2rem] h-[260px] w-auto object-contain brightness-0 opacity-[0.14] md:left-0 md:bottom-[-3.5rem] md:h-[360px]"
+          onError={(event) => { event.currentTarget.style.display = "none"; }}
+        />
+        <img
+          src="/images/toucan.png"
+          alt=""
+          aria-hidden="true"
+          className="pointer-events-none absolute -right-6 top-6 h-48 w-auto rotate-12 object-contain opacity-10 md:right-10 md:top-8 md:h-64"
+          onError={(event) => { event.currentTarget.style.display = "none"; }}
+        />
+        <div className="container relative z-10 mx-auto px-4">
           <h3 className="mb-10 text-center text-4xl font-bold text-forest-deep">{content.organizers.title}</h3>
           <div className="mx-auto grid max-w-5xl gap-6 md:grid-cols-2 md:grid-rows-[auto_1fr]">
             {content.organizers.items.map((org) => (
@@ -217,12 +254,19 @@ const HomeContentSections = () => {
                 key={`${member.name}-${member.role}`}
                 className="group relative h-80 w-60 flex-shrink-0 snap-start overflow-hidden rounded-2xl border border-forest-light/30 bg-card/95 shadow-forest transition-smooth hover:-translate-y-1 hover:shadow-floating sm:w-64 lg:w-72"
               >
-                <img
-                  src={member.image ?? "/placeholder.svg"}
-                  alt={member.name}
-                  className="h-full w-full object-cover transition-smooth group-hover:scale-105"
-                  onError={(event) => { event.currentTarget.src = "/placeholder.svg"; }}
-                />
+                {member.image ? (
+                  <img
+                    src={member.image}
+                    alt={member.name}
+                    className="h-full w-full object-cover transition-smooth group-hover:scale-105"
+                    style={{ objectPosition: member.imagePosition ?? "center" }}
+                    onError={(event) => { event.currentTarget.src = "/placeholder.svg"; }}
+                  />
+                ) : (
+                  <div className="flex h-full w-full items-center justify-center bg-forest-mist text-5xl font-bold text-forest-primary transition-smooth group-hover:scale-105">
+                    {getInitials(member.name)}
+                  </div>
+                )}
                 <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/45 to-transparent" />
                 <div className="absolute inset-x-3 bottom-3 p-3 text-center">
                   <h4 className="text-base font-semibold text-white">{member.name}</h4>
@@ -276,7 +320,7 @@ const HomeContentSections = () => {
               Be part of the global ranger community. Register for the 11th IRF World Ranger Congress in Puerto Iguazu, Argentina.
             </p>
             <div className="mt-8 flex flex-wrap items-center justify-center gap-4">
-              <Link to="/tickets">
+              <Link to="/register">
                 <Button size="lg" className="forest-gradient px-8 text-primary-foreground shadow-forest hover:scale-105 transition-bounce">
                   Register Now
                 </Button>

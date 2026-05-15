@@ -1,6 +1,6 @@
 import PageHeroBanner from "@/components/common/PageHeroBanner";
-import PageShell from "@/components/common/PageShell";
 import { Button } from "@/components/ui/button";
+import { CONTACT_EMAIL } from "@/constants/site";
 import { openExternal } from "@/lib/navigation";
 
 const registrationIncludes = [
@@ -15,13 +15,15 @@ const registrationIncludes = [
 
 const Register = () => {
   return (
-    <PageShell>
+    <section className="relative overflow-hidden bg-gradient-to-b from-forest-mist/40 via-background to-background pb-24">
       <PageHeroBanner
         imageSrc="/images/images/submit/Banner.jpg"
         title="Register Now"
         subtitle="Secure your place at the 11th IRF World Ranger Congress"
+        sectionClassName="mb-20 h-[340px] md:h-[420px]"
       />
 
+      <div className="container mx-auto px-4">
         <p className="mb-6 text-center text-lg text-forest-primary">
           Secure your place at the 11th IRF World Ranger Congress.
         </p>
@@ -46,18 +48,21 @@ const Register = () => {
           </Button>
         </div>
 
-        <div className="grid gap-5 md:grid-cols-3">
+        <p className="mx-auto mb-10 max-w-2xl text-center text-forest-primary">
+          You can now register more than one person using the same email address. For block bookings,
+          please contact{" "}
+          <a href={`mailto:${CONTACT_EMAIL}`} className="font-semibold text-forest-deep underline underline-offset-4">
+            {CONTACT_EMAIL}
+          </a>
+          .
+        </p>
+
+        <div className="grid gap-5 md:grid-cols-2">
           <article className="border-t-4 border-forest-primary/70 pt-4 text-center">
             <h3 className="mb-2 text-lg font-bold text-forest-deep">Capacity</h3>
             <p className="text-sm text-forest-primary">Maximum 600 attendees total</p>
             <p className="text-sm text-forest-primary">75 delegates per IRF region</p>
-            <p className="text-sm text-forest-primary">150 for host region (Argentina)</p>
-          </article>
-          <article className="border-t-4 border-forest-primary/70 pt-4 text-center">
-            <h3 className="mb-2 text-lg font-bold text-forest-deep">Rules</h3>
-            <p className="text-sm text-forest-primary">Registration is individual and personal</p>
-            <p className="text-sm text-forest-primary">Non-transferable to another person</p>
-            <p className="text-sm text-forest-primary">No group registrations</p>
+            <p className="text-sm text-forest-primary">150 for host region (South America)</p>
           </article>
           <article className="border-t-4 border-forest-primary/70 pt-4 text-center">
             <h3 className="mb-2 text-lg font-bold text-forest-deep">Spouses and Partners</h3>
@@ -75,7 +80,8 @@ const Register = () => {
             <div className="rounded-lg bg-red-50 p-4 text-red-800">Within 2 months (February 2027+): no refund</div>
           </div>
         </div>
-    </PageShell>
+      </div>
+    </section>
   );
 };
 

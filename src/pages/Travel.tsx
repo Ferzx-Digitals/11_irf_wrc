@@ -35,12 +35,14 @@ const Travel = () => {
                   travel authorization (AVE) online. Check the Argentine visa portal for your
                   nationality and start your process early.
                 </p>
-                <Button
-                  className="forest-gradient text-white"
-                  onClick={() => openExternal(VISA_PORTAL_URL)}
-                >
-                  Argentine Visa Portal
-                </Button>
+                <div className="flex justify-start md:justify-end">
+                  <Button
+                    className="forest-gradient text-white"
+                    onClick={() => openExternal(VISA_PORTAL_URL)}
+                  >
+                    Argentine Visa Portal
+                  </Button>
+                </div>
               </div>
             </div>
           </div>

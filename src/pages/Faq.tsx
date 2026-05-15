@@ -1,9 +1,10 @@
 import { useMemo, useState } from "react";
+import { Link } from "react-router-dom";
 import { ChevronDown, ExternalLink, Search } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import PageIntro from "@/components/common/PageIntro";
 import { CONTACT_EMAIL, CONGRESS_THEME } from "@/constants/site";
-import { goToMail, goToPath } from "@/lib/navigation";
+import { goToMail } from "@/lib/navigation";
 
 type FaqCategory = "registration" | "accommodation" | "general" | "payment" | "sponsorship";
 
@@ -91,14 +92,14 @@ const faqItems: FaqItem[] = [
     id: 10,
     question: "What does the registration with accommodation include?",
     answer:
-      "Transport to and from the airport, welcome pack, full congress access, simultaneous translations at plenaries, coffee and tea service, lunch, field trips, hotel room (18-24 April 2027), breakfast, dinner, and evening function access.",
+      "Transport to and from the airport, welcome pack, full congress access, simultaneous translations at plenaries, coffee and tea service, lunch, field trips, hotel room (19-24 April 2027), breakfast, dinner, and evening function access.",
     category: "accommodation",
   },
   {
     id: 11,
     question: "Where will accommodation be?",
     answer:
-      "The main accommodation is at Hotel Amerian Portal del Iguazu, a 5-star hotel with 117 rooms, located at Av. Tres Fronteras 780. Dates: 18-24 April 2027.",
+      "The main accommodation is at Hotel Amerian Portal del Iguazu, a 5-star hotel with 117 rooms, located at Av. Tres Fronteras 780. Dates: 19-24 April 2027.",
     category: "accommodation",
   },
   {
@@ -119,7 +120,7 @@ const faqItems: FaqItem[] = [
     id: 14,
     question: "Are there limitations to registrations?",
     answer:
-      "Yes. Maximum 600 total attendees, 75 per region, and 150 for the host region (Argentina). Registration is individual and personal, non-transferable.",
+      "Yes. Maximum 600 total attendees, 75 per IRF region, and 150 for the host region (South America). You can register more than one person using the same email address. For block bookings, please contact wrc@internationalrangers.org.",
     category: "registration",
   },
   {
@@ -354,8 +355,8 @@ const Faq = () => {
             Can&apos;t find what you&apos;re looking for? Reach out to our team directly.
           </p>
           <div className="flex flex-wrap justify-center gap-4">
-            <Button size="lg" className="forest-gradient text-white" onClick={() => goToPath("/contact")}>
-              Contact Us
+            <Button asChild size="lg" className="forest-gradient text-white">
+              <Link to="/contact">Contact Us</Link>
             </Button>
             <Button
               size="lg"

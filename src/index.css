@@ -264,6 +264,15 @@ All colors MUST be HSL.
       transform: translateX(0);
     }
   }
+
+  @keyframes media-coverage-scroll {
+    from {
+      transform: translateX(0);
+    }
+    to {
+      transform: translateX(calc(-50% - 0.625rem));
+    }
+  }
   
   .animate-fade-up {
     animation: fade-up 0.8s ease-out forwards;

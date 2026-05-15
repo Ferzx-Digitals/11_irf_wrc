@@ -19,6 +19,7 @@ export interface TeamMember {
   role: string;
   org: string;
   image?: string;
+  imagePosition?: string;
 }
 
 export interface Region {

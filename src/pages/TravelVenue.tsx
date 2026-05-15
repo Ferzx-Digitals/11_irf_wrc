@@ -1,4 +1,4 @@
-import { Bus, Check, MapPin, Phone, Plane } from "lucide-react";
+import { Bus, Check, Mail, MapPin, Phone, Plane } from "lucide-react";
 import PageHeroBanner from "@/components/common/PageHeroBanner";
 import TravelSubNav from "@/components/common/TravelSubNav";
 import {
@@ -283,32 +283,52 @@ const TravelVenue = () => {
         {/* Transfers */}
         <div className="mb-16">
           <h2 className="mb-8 text-center text-3xl font-bold text-forest-deep">Transfers</h2>
-          <div className="mx-auto grid max-w-4xl gap-6 sm:grid-cols-2">
-            <article className="flex flex-col items-center rounded-2xl border border-forest-light/30 bg-card/95 p-8 text-center shadow-forest">
-              <div className="mb-3 flex h-14 w-14 items-center justify-center rounded-2xl bg-forest-mist/60 text-forest-primary">
-                <Plane className="h-7 w-7" />
-              </div>
-              <h3 className="mb-2 text-lg font-bold text-forest-deep">Airport Transfers</h3>
-              <p className="mb-3 text-sm text-forest-primary">
-                Transport to and from Cataratas del Iguazu Airport (IGR) is included for
-                congress delegates staying at partner hotels.
+          <div className="mx-auto grid max-w-5xl gap-6 lg:grid-cols-[1.1fr_0.9fr]">
+            <article className="rounded-2xl border border-earth-warm/30 bg-earth-light/30 p-8 shadow-forest">
+              <h3 className="mb-4 text-xl font-bold text-forest-deep">
+                Transfers must be arranged individually
+              </h3>
+              <p className="text-sm leading-relaxed text-forest-primary">
+                Please note that transfers are not included in congress registration or
+                accommodation arrangements. All participants are responsible for arranging their
+                own airport, hotel, and local transfers.
               </p>
-              <span className="inline-flex rounded-full bg-forest-primary px-3 py-1 text-xs font-semibold uppercase tracking-wide text-white">
-                Included
-              </span>
+              <div className="mt-5 grid gap-3 sm:grid-cols-2">
+                <div className="flex items-center gap-3 rounded-xl border border-forest-light/30 bg-card/80 p-4">
+                  <Plane className="h-5 w-5 shrink-0 text-forest-primary" />
+                  <span className="text-sm font-semibold text-forest-deep">Airport transfers</span>
+                </div>
+                <div className="flex items-center gap-3 rounded-xl border border-forest-light/30 bg-card/80 p-4">
+                  <Bus className="h-5 w-5 shrink-0 text-forest-primary" />
+                  <span className="text-sm font-semibold text-forest-deep">Local transfers</span>
+                </div>
+              </div>
             </article>
-            <article className="flex flex-col items-center rounded-2xl border border-forest-light/30 bg-card/95 p-8 text-center shadow-forest">
-              <div className="mb-3 flex h-14 w-14 items-center justify-center rounded-2xl bg-forest-mist/60 text-forest-primary">
-                <Bus className="h-7 w-7" />
+
+            <article className="rounded-2xl border border-forest-light/30 bg-card/95 p-8 shadow-forest">
+              <div className="mb-4 flex h-14 w-14 items-center justify-center rounded-2xl bg-forest-mist/60 text-forest-primary">
+                <MapPin className="h-7 w-7" />
               </div>
-              <h3 className="mb-2 text-lg font-bold text-forest-deep">Brazilian Side Transfers</h3>
-              <p className="mb-3 text-sm text-forest-primary">
-                Optional transfers from Foz do Iguaçu Airport (IGU) across the international
-                bridge to Puerto Iguazu.
+              <h3 className="mb-2 text-xl font-bold text-forest-deep">Transfer Support</h3>
+              <p className="mb-5 text-sm leading-relaxed text-forest-primary">
+                Full Service EVT can support participants who need help arranging transfers.
               </p>
-              <span className="inline-flex rounded-full bg-earth-brown/15 px-3 py-1 text-xs font-bold text-earth-brown">
-                USD $25 / person
-              </span>
+              <div className="space-y-3">
+                <a
+                  href="mailto:fullserviceevt@gmail.com"
+                  className="flex items-center gap-3 rounded-xl border border-forest-light/30 bg-forest-mist/50 px-4 py-3 text-sm font-semibold text-forest-deep transition-smooth hover:bg-forest-mist"
+                >
+                  <Mail className="h-4 w-4 shrink-0 text-forest-primary" />
+                  fullserviceevt@gmail.com
+                </a>
+                <a
+                  href="tel:+543757423721"
+                  className="flex items-center gap-3 rounded-xl border border-forest-light/30 bg-forest-mist/50 px-4 py-3 text-sm font-semibold text-forest-deep transition-smooth hover:bg-forest-mist"
+                >
+                  <Phone className="h-4 w-4 shrink-0 text-forest-primary" />
+                  +54 3757 423721
+                </a>
+              </div>
             </article>
           </div>
         </div>

@@ -8,7 +8,6 @@ import Index from "./pages/Index";
 import Schedule from "./pages/Schedule";
 import Teams from "./pages/Teams";
 import Gallery from "./pages/Gallery";
-import Tickets from "./pages/Tickets";
 import Contact from "./pages/Contact";
 import Submit from "./pages/Submit";
 import Faq from "./pages/Faq";
@@ -22,6 +21,7 @@ import Program from "./pages/Program";
 import Press from "./pages/Press";
 import Register from "./pages/Register";
 import NotFound from "./pages/NotFound";
+import Sponsorship from "./pages/Sponsorship";
 
 const queryClient = new QueryClient();
 
@@ -37,7 +37,6 @@ const App = () => (
             <Route path="/schedule" element={<Schedule />} />
             <Route path="/teams" element={<Teams />} />
             <Route path="/gallery" element={<Gallery />} />
-            <Route path="/tickets" element={<Tickets />} />
             <Route path="/submit" element={<Submit />} />
             <Route path="/congress-theme" element={<CongressTheme />} />
             <Route path="/faq" element={<Faq />} />
@@ -48,6 +47,7 @@ const App = () => (
             <Route path="/travel/faqs" element={<TravelFaqs />} />
             <Route path="/program" element={<Program />} />
             <Route path="/press" element={<Press />} />
+            <Route path="/sponsorship" element={<Sponsorship />} />
             <Route path="/register" element={<Register />} />
             <Route path="/contact" element={<Contact />} />
           </Route>

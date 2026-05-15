@@ -2,9 +2,9 @@ import { Button } from "@/components/ui/button";
 import PageHeroBanner from "@/components/common/PageHeroBanner";
 import { BadgeCheck, Globe, Handshake, Lightbulb, Shield, Sprout, Stethoscope, RadioTower, ThermometerSun, Mountain } from "lucide-react";
 import { CONGRESS_THEME } from "@/constants/site";
-import { goToPath } from "@/lib/navigation";
 
 const themeImagePath = (file: string) => `/images/images/congress-theme/${file}`;
+const homeImagePath = (file: string) => `/images/images/home/${file}`;
 
 const streams = [
   {
@@ -101,15 +101,45 @@ const topics = [
 
 const CongressTheme = () => {
   return (
-    <section className="relative overflow-hidden bg-gradient-to-b from-forest-mist/40 via-background to-background pb-24">
+    <section className="relative overflow-hidden bg-gradient-to-b from-forest-mist/40 via-background to-background">
       <PageHeroBanner
         imageSrc={themeImagePath("Banner.jpg")}
         title="Congress Theme"
         subtitle={CONGRESS_THEME}
-        overlayClassName="bg-gradient-to-r from-black/80 via-black/55 to-black/25"
+        overlayClassName="bg-gradient-to-r from-black/15 via-black/5 to-transparent"
       />
 
-      <div className="container mx-auto px-4">
+      <div className="relative overflow-hidden pb-24">
+        <img
+          src={homeImagePath("15.png")}
+          alt=""
+          aria-hidden="true"
+          className="pointer-events-none absolute right-0 top-0 h-80 w-auto object-contain opacity-[0.2] md:h-[440px]"
+          onError={(event) => { event.currentTarget.style.display = "none"; }}
+        />
+        <img
+          src={homeImagePath("10.png")}
+          alt=""
+          aria-hidden="true"
+          className="pointer-events-none absolute -left-10 top-[48%] h-56 w-auto object-contain opacity-[0.2] md:left-0 md:h-72"
+          onError={(event) => { event.currentTarget.style.display = "none"; }}
+        />
+        <img
+          src={homeImagePath("10.png")}
+          alt=""
+          aria-hidden="true"
+          className="pointer-events-none absolute -right-10 bottom-[20rem] h-56 w-auto object-contain opacity-[0.34] md:right-0 md:h-72"
+          onError={(event) => { event.currentTarget.style.display = "none"; }}
+        />
+        <img
+          src={homeImagePath("25.png")}
+          alt=""
+          aria-hidden="true"
+          className="pointer-events-none absolute bottom-10 left-0 h-52 w-auto object-contain opacity-[0.22] md:h-64"
+          onError={(event) => { event.currentTarget.style.display = "none"; }}
+        />
+
+      <div className="container relative z-10 mx-auto px-4">
         <div className="mx-auto mb-14 max-w-4xl rounded-3xl border border-forest-light/30 bg-card/95 p-8 shadow-forest md:p-10">
         <h2 className="mb-4 text-center text-2xl font-bold text-forest-deep md:text-3xl">"{CONGRESS_THEME}"</h2>
         <p className="leading-relaxed text-forest-primary">
@@ -200,11 +230,12 @@ const CongressTheme = () => {
         <Button
           size="lg"
           variant="secondary"
-          className="bg-white text-forest-deep hover:bg-white/90"
-          onClick={() => goToPath("/submit")}
+          className="cursor-not-allowed bg-white/85 text-forest-deep hover:bg-white/85"
+          disabled
         >
-          Submit Expression of Interest
+          EOI is closed
         </Button>
+      </div>
       </div>
       </div>
     </section>

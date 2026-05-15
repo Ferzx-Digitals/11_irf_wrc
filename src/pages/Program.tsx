@@ -1,4 +1,5 @@
 import { Clock, Download, MapPin } from "lucide-react";
+import PlannedScheduleTable from "@/components/congress/PlannedScheduleTable";
 import PageHeroBanner from "@/components/common/PageHeroBanner";
 import { Button } from "@/components/ui/button";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
@@ -63,19 +64,17 @@ const Program = () => {
               </h2>
               <div className="overflow-hidden rounded-2xl border border-forest-light/30 bg-card shadow-forest">
                 <div className="grid grid-cols-[1fr_2fr]">
-                  <div className="bg-forest-mist/70 px-6 py-3 text-sm font-bold uppercase tracking-wide text-forest-deep">
+                  <div className="bg-forest-mist/70 px-6 py-3 text-sm font-bold uppercase text-forest-deep">
                     Day
                   </div>
-                  <div className="bg-forest-mist/70 px-6 py-3 text-sm font-bold uppercase tracking-wide text-forest-deep">
+                  <div className="bg-forest-mist/70 px-6 py-3 text-sm font-bold uppercase text-forest-deep">
                     Events
                   </div>
                   {congressSchedule.map((row, index) => {
                     const stripe = index % 2 === 0 ? "bg-card" : "bg-forest-mist/20";
                     return (
                       <div key={row.day} className="contents">
-                        <div
-                          className={`px-6 py-4 text-sm font-semibold text-forest-deep ${stripe}`}
-                        >
+                        <div className={`px-6 py-4 text-sm font-semibold text-forest-deep ${stripe}`}>
                           {row.day}
                         </div>
                         <div className={`px-6 py-4 text-sm text-forest-primary ${stripe}`}>
@@ -86,44 +85,35 @@ const Program = () => {
                   })}
                 </div>
               </div>
-              <div className="mt-6 text-center">
-                <span className="inline-flex cursor-not-allowed items-center gap-2 rounded-lg border border-forest-light/40 bg-card px-4 py-2 text-sm font-semibold text-forest-primary/70">
-                  <Download className="h-4 w-4" />
-                  Download Full Program (PDF) — Coming Soon
-                </span>
+
+              <div className="mt-6 flex justify-center">
+                <Button
+                  asChild
+                  size="lg"
+                  className="forest-gradient rounded-full px-7 text-white shadow-forest transition-smooth hover:-translate-y-0.5 hover:shadow-floating"
+                >
+                  <a
+                    href="/downloads/wrc-2027-planned-program.pdf"
+                    download="WRC-2027-Planned-Program.pdf"
+                  >
+                    <Download className="h-4 w-4" />
+                    Download Full Program
+                  </a>
+                </Button>
               </div>
             </div>
           </TabsContent>
 
           {/* Detailed Schedule */}
           <TabsContent value="schedule" className="mt-0">
-            <div className="mx-auto max-w-4xl">
+            <div className="mx-auto max-w-6xl">
               <h2 className="mb-6 text-center text-2xl font-bold text-forest-deep">
                 Detailed Schedule
               </h2>
-              <div className="space-y-4">
-                {congressSchedule.map((day) => (
-                  <div
-                    key={day.day}
-                    className="rounded-2xl border border-forest-light/30 bg-card/95 p-6 text-center shadow-forest"
-                  >
-                    <h3 className="mb-3 text-lg font-bold text-forest-deep">{day.day}</h3>
-                    <ul className="flex flex-wrap justify-center gap-x-5 gap-y-2">
-                      {day.events.split(", ").map((event) => (
-                        <li
-                          key={event}
-                          className="flex items-center gap-2 text-sm text-forest-primary"
-                        >
-                          <span className="h-2 w-2 shrink-0 rounded-full bg-forest-primary" />
-                          {event}
-                        </li>
-                      ))}
-                    </ul>
-                    <p className="mt-3 text-xs italic text-forest-primary/60">
-                      Detailed times to be announced.
-                    </p>
-                  </div>
-                ))}
+              <div className="overflow-hidden rounded-2xl border border-forest-light/30 bg-card/95 p-3 shadow-forest">
+                <div className="overflow-x-auto">
+                  <PlannedScheduleTable />
+                </div>
               </div>
             </div>
           </TabsContent>
@@ -133,11 +123,11 @@ const Program = () => {
             <h2 className="mb-6 text-center text-2xl font-bold text-forest-deep">
               Congress Activities
             </h2>
-            <div className="mx-auto grid max-w-6xl gap-6 sm:grid-cols-2 lg:grid-cols-3">
+            <div className="mx-auto grid max-w-6xl grid-cols-[repeat(auto-fit,minmax(280px,360px))] justify-center gap-6">
               {congressActivities.map((activity) => (
                 <article
                   key={activity.title}
-                  className="group relative aspect-[4/3] overflow-hidden rounded-2xl shadow-forest transition-smooth hover:-translate-y-1 hover:shadow-floating"
+                  className="group relative aspect-[4/3] w-full overflow-hidden rounded-2xl shadow-forest transition-smooth hover:-translate-y-1 hover:shadow-floating"
                 >
                   <img
                     src={`/images/images/congress-introduction/${encodeURIComponent(activity.image)}`}
@@ -165,7 +155,7 @@ const Program = () => {
               <h2 className="mb-3 text-center text-2xl font-bold text-forest-deep">Field Trips</h2>
               <p className="mx-auto mb-10 max-w-3xl text-center text-forest-primary">
                 Discover the natural wonders surrounding the congress venue. Field trips run on
-                Monday 21 April.
+                Thursday 22 April.
               </p>
 
               <div className="mx-auto mb-16 max-w-md">

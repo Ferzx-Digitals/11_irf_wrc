@@ -17,12 +17,12 @@ const navItems: NavItem[] = [
     label: "About",
     children: [
       { to: "/about", label: "Congress Introduction" },
+      { to: "/congress-theme", label: "Congress Theme" },
       { to: "/about/events", label: "Congress Events" },
     ],
   },
+  { to: "/program", label: "Program" },
   { to: "/submit", label: "Submit" },
-  { to: "/faq", label: "FAQ" },
-  { to: "/congress-theme", label: "Congress Theme" },
   {
     label: "Plan Travel",
     children: [
@@ -31,8 +31,9 @@ const navItems: NavItem[] = [
       { to: "/travel/faqs", label: "Travel FAQs" },
     ],
   },
-  { to: "/program", label: "Program" },
+  { to: "/sponsorship", label: "Sponsorship" },
   { to: "/press", label: "Press" },
+  { to: "/faq", label: "FAQ" },
   { to: "/contact", label: "Contact Us" },
   { to: "/register", label: "Register Now", highlight: true },
 ];
@@ -112,7 +113,7 @@ const SiteHeader = () => {
 
           <nav
             className={cn(
-              "hidden items-center gap-6 lg:flex transition-smooth",
+              "hidden items-center gap-4 xl:gap-6 lg:flex transition-smooth",
               connectedToHero ? "rounded-full bg-black/28 px-5 py-2 backdrop-blur-sm" : "",
             )}
           >
