@@ -190,21 +190,6 @@ export const homeContentEn: HomeContent = {
         image: "/images/team/irf/Rohit Singh - Vice president.jpg",
       },
       {
-        name: "Olivier Soulier-Versini",
-        role: "Community Manager GNF",
-        org: "IRF",
-      },
-      {
-        name: "Carole d'Antuoni",
-        role: "Presidente GNF",
-        org: "IRF",
-      },
-      {
-        name: "Tristan Calistri",
-        role: "Treasurer GNF",
-        org: "IRF",
-      },
-      {
         name: "Jonathan Churcher",
         role: "Board Member",
         org: "IRF",
