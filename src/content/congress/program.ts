@@ -48,8 +48,10 @@ export const congressSchedule: CongressScheduleDay[] = [
   },
   {
     day: "Day 2: Tuesday 20 April 2027",
-    events: "Coffee break, Plenary 1, Plenary 2, Lunch break, Workshops 1-6, Regional meetings, Evening free",
+    events: "Welcome, Flag ceremony, Plenary 1 & 2, Workshops 1-6, Regional meetings, Evening free",
     items: [
+      { title: "Welcome", type: "registration" },
+      { title: "Flag ceremony", type: "registration" },
       { title: "Coffee break", type: "meal" },
       { title: "Plenary 1", type: "plenary" },
       { title: "Plenary 2", type: "plenary" },
@@ -66,8 +68,9 @@ export const congressSchedule: CongressScheduleDay[] = [
   },
   {
     day: "Day 3: Wednesday 21 April 2027",
-    events: "Breakfast, Coffee break, Plenaries 3-5, Lunch break, Workshops 7-12",
+    events: "IRF AGM, Plenaries 3-5, Workshops 7-12, IRF Awards ceremony",
     items: [
+      { title: "IRF AGM", type: "meeting" },
       { title: "Breakfast", type: "meal" },
       { title: "Coffee break", type: "meal" },
       { title: "Plenary 3", type: "plenary" },
@@ -76,25 +79,27 @@ export const congressSchedule: CongressScheduleDay[] = [
       { title: "Lunch break", type: "meal" },
       { title: "Workshops", type: "workshop", detail: "Workshop 7, Workshop 8, Workshop 9, Workshop 10, Workshop 11, Workshop 12." },
       { title: "Coffee break", type: "meal" },
+      { title: "IRF Awards ceremony", type: "meeting" },
     ],
   },
   {
     day: "Day 4: Thursday 22 April 2027",
-    events: "Breakfast, Field trips to Iguazu Falls, Evening free",
+    events: "Field trips, Auction / Badge Swap, Cultural evening",
     items: [
       { title: "Breakfast", type: "meal" },
       { title: "Field trips", type: "field", detail: "Iguazu Falls." },
-      { title: "Evening free", type: "free" },
+      { title: "Auction / Badge Swap", type: "meeting" },
+      { title: "Cultural evening", type: "free" },
     ],
   },
   {
     day: "Day 5: Friday 23 April 2027",
-    events: "Breakfast, Plenary 6, Coffee break, Lunch break",
+    events: "IRF Board elections & announcement, 12th WRC announcement, Puerto Iguazu Declaration",
     items: [
       { title: "Breakfast", type: "meal", detail: "07:00-08:00." },
-      { title: "Plenary 6", type: "plenary" },
-      { title: "Coffee break", type: "meal" },
-      { title: "Lunch break", type: "meal" },
+      { title: "IRF Board elections & announcement", type: "meeting" },
+      { title: "12th WRC announcement", type: "registration" },
+      { title: "Puerto Iguazu Declaration", type: "registration" },
     ],
   },
 ];

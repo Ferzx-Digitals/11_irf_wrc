@@ -1,5 +1,15 @@
-import { CalendarX, CheckCircle2, Globe, Handshake, LockKeyhole, Mic, Microscope } from "lucide-react";
+import {
+  CalendarX,
+  CheckCircle2,
+  ExternalLink,
+  Handshake,
+  LockKeyhole,
+  Mic,
+  Microscope,
+} from "lucide-react";
 import PageIntro from "@/components/common/PageIntro";
+import { Button } from "@/components/ui/button";
+import { openExternal } from "@/lib/navigation";
 
 const sessionTypes = [
   {
@@ -40,6 +50,12 @@ const thematicStreams = [
   "Open Stream: High Impact Contributions",
 ];
 
+const fundingSupportForms = [
+  { language: "English", url: "https://forms.gle/MTJmr4A3Nogk8GhV8" },
+  { language: "Spanish", url: "https://forms.gle/MGVH2c7QQtg9Cvtk9" },
+  { language: "French", url: "https://forms.gle/FGjVWNEqAmNVs55g7" },
+] as const;
+
 const Submit = () => {
   return (
     <section className="relative overflow-hidden bg-gradient-to-b from-forest-mist/40 via-background to-background py-24">
@@ -59,11 +75,11 @@ const Submit = () => {
                 Closed for review
               </div>
               <h2 className="max-w-2xl text-3xl font-bold leading-tight text-forest-deep md:text-5xl">
-                SUBMISSION OF INTEREST IS NOW CLOSED
+                SPEAKER EOI IS NOW CLOSED
               </h2>
               <p className="mt-5 max-w-2xl text-base leading-relaxed text-forest-primary md:text-lg">
-                Thank you to everyone who shared an expression of interest. New submissions are no longer being
-                accepted, and received proposals are moving through the congress review process.
+                Thank you to everyone who shared an expression of interest to speak. New speaker submissions are no
+                longer being accepted, and received proposals are moving through the congress review process.
               </p>
               <div className="mt-7 grid gap-3 sm:grid-cols-2">
                 <div className="rounded-2xl border border-forest-light/30 bg-forest-mist/60 p-4">
@@ -98,7 +114,7 @@ const Submit = () => {
 
         <div className="mx-auto mb-14 max-w-4xl rounded-3xl border border-forest-light/30 bg-card/90 p-8 shadow-forest md:p-10">
           <h2 className="mb-4 text-2xl font-bold text-forest-deep md:text-3xl">
-            Expression of Interest Guidelines
+            Speaker Expression of Interest Guidelines
           </h2>
           <div className="space-y-4 text-forest-primary">
             <p>
@@ -165,8 +181,8 @@ const Submit = () => {
           </div>
           <h2 className="mb-3 text-3xl font-bold text-forest-deep">Expression of Interest Review</h2>
           <p className="text-forest-primary">
-            The submission forms are now closed in English, Spanish, and French. The Congress Program Committee is
-            reviewing received expressions of interest and will notify selected speakers by 30 June 2026.
+            The speaker EOI forms are now closed in English, Spanish, and French. The Congress Program Committee is
+            reviewing received speaker expressions of interest and will notify selected speakers by 30 June 2026.
           </p>
         </div>
 
@@ -176,22 +192,25 @@ const Submit = () => {
             <h2 className="text-2xl font-bold text-forest-deep">Need Funding Support?</h2>
           </div>
           <p className="mb-6 text-forest-primary">
-            Funding expressions of interest are also closed while received applications are reviewed.
+            Funding support expressions of interest remain open. Choose the form language below to request support to
+            attend the congress.
           </p>
-          <div className="inline-flex items-center gap-2 rounded-full border border-forest-light/40 bg-forest-mist/70 px-5 py-3 text-sm font-semibold text-forest-deep">
-            <LockKeyhole className="h-4 w-4" />
-            Funding EOI forms closed
+          <div className="mx-auto grid max-w-xl gap-3 sm:grid-cols-3">
+            {fundingSupportForms.map((form) => (
+              <Button
+                key={form.language}
+                type="button"
+                variant="outline"
+                className="justify-center gap-2 border-forest-light/40 bg-forest-mist/40 text-forest-deep hover:bg-forest-mist"
+                onClick={() => openExternal(form.url)}
+              >
+                {form.language}
+                <ExternalLink className="h-4 w-4" />
+              </Button>
+            ))}
           </div>
         </div>
 
-        <div className="mx-auto max-w-4xl rounded-2xl border border-earth-brown/30 bg-earth-brown px-6 py-5 text-center text-white shadow-forest">
-          <p className="text-lg font-bold">Submission Deadline: Close of business on the 30th of April 2026</p>
-          <p className="mt-1 text-sm text-white/85">Applicants will be notified by the 30th of June 2026.</p>
-          <div className="mt-4 inline-flex items-center gap-2 text-white/90">
-            <Globe className="h-4 w-4" />
-            <span className="text-sm">Forms available in English, Spanish, and French</span>
-          </div>
-        </div>
       </div>
     </section>
   );

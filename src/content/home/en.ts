@@ -173,11 +173,6 @@ export const homeContentEn: HomeContent = {
         imagePosition: "35% 45%",
       },
       {
-        name: "Jolene Nelson",
-        role: "Oceania Representative",
-        org: "IRF",
-      },
-      {
         name: "Monica Alvarez",
         role: "Federation Development Officer",
         org: "IRF",
@@ -191,7 +186,7 @@ export const homeContentEn: HomeContent = {
       },
       {
         name: "Jonathan Churcher",
-        role: "Board Member",
+        role: "IRF General Manager",
         org: "IRF",
         image: "/images/team/irf/Jonathan Churcher.png",
       },

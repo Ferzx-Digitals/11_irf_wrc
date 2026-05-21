@@ -245,12 +245,7 @@ const TravelVenue = () => {
           <h2 className="mb-8 text-center text-3xl font-bold text-forest-deep">Tour Packages</h2>
 
           <div className="mb-10 rounded-2xl border border-forest-light/40 bg-forest-mist/40 p-8 shadow-forest">
-            <div className="mb-4 flex items-center gap-3">
-              <span className="inline-flex rounded-full bg-forest-primary px-3 py-1 text-xs font-semibold uppercase tracking-wide text-white">
-                Included
-              </span>
-              <h3 className="text-xl font-bold text-forest-deep">Basic Package</h3>
-            </div>
+            <h3 className="mb-4 text-xl font-bold text-forest-deep">Basic Package</h3>
             <ul className="grid gap-2 sm:grid-cols-2">
               {basicPackageItems.map((item) => (
                 <li key={item} className="flex items-start gap-2 text-forest-primary">

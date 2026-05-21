@@ -93,8 +93,8 @@ const Program = () => {
                   className="forest-gradient rounded-full px-7 text-white shadow-forest transition-smooth hover:-translate-y-0.5 hover:shadow-floating"
                 >
                   <a
-                    href="/downloads/wrc-2027-planned-program.pdf"
-                    download="WRC-2027-Planned-Program.pdf"
+                    href="/downloads/Program.docx"
+                    download="Program.docx"
                   >
                     <Download className="h-4 w-4" />
                     Download Full Program
@@ -106,12 +106,12 @@ const Program = () => {
 
           {/* Detailed Schedule */}
           <TabsContent value="schedule" className="mt-0">
-            <div className="mx-auto max-w-6xl">
+            <div className="relative left-1/2 mx-auto w-[calc(100vw-2rem)] max-w-[1500px] -translate-x-1/2">
               <h2 className="mb-6 text-center text-2xl font-bold text-forest-deep">
                 Detailed Schedule
               </h2>
-              <div className="overflow-hidden rounded-2xl border border-forest-light/30 bg-card/95 p-3 shadow-forest">
-                <div className="overflow-x-auto">
+              <div className="overflow-hidden rounded-2xl border border-forest-light/30 bg-card/95 p-4 shadow-forest">
+                <div className="max-h-[78vh] min-h-[640px] overflow-auto">
                   <PlannedScheduleTable />
                 </div>
               </div>
