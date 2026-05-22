@@ -180,7 +180,7 @@ export const homeContentEn: HomeContent = {
       },
       {
         name: "Rohit Singh",
-        role: "Asia Representative",
+        role: "Vice President IRF",
         org: "IRF",
         image: "/images/team/irf/Rohit Singh - Vice president.jpg",
       },
