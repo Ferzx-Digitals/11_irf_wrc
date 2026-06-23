@@ -89,13 +89,6 @@ const faqItems: FaqItem[] = [
     category: "registration",
   },
   {
-    id: 10,
-    question: "What does the registration with accommodation include?",
-    answer:
-      "Transport to and from the airport, welcome pack, full congress access, simultaneous translations at plenaries, coffee and tea service, lunch, field trips, hotel room (19-24 April 2027), breakfast, dinner, and evening function access.",
-    category: "accommodation",
-  },
-  {
     id: 11,
     question: "Where will accommodation be?",
     answer:
@@ -156,12 +149,6 @@ const faqItems: FaqItem[] = [
     answer:
       "Yes. Your partner pays the same $395 registration fee and can book accommodation together with you.",
     category: "registration",
-  },
-  {
-    id: 20,
-    question: "Can I get a private room?",
-    answer: "Private room options are being arranged. Contact us for more details and availability.",
-    category: "accommodation",
   },
   {
     id: 21,

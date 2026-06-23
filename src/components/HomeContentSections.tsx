@@ -242,6 +242,27 @@ const HomeContentSections = () => {
               </article>
             ))}
           </div>
+
+          <div className="mx-auto mt-14 max-w-5xl">
+            <h4 className="mb-6 text-center text-2xl font-bold text-forest-deep">
+              {content.partners.title}
+            </h4>
+            <div className="grid gap-4 sm:grid-cols-3">
+              {content.partners.items.map((partner) => (
+                <article
+                  key={partner.name}
+                  className="flex min-h-36 items-center justify-center rounded-2xl border border-forest-light/30 bg-forest-deep p-6 shadow-forest transition-smooth hover:-translate-y-1 hover:shadow-floating"
+                >
+                  <img
+                    src={partner.logo}
+                    alt={partner.name}
+                    className="max-h-24 w-full object-contain"
+                    onError={(event) => { event.currentTarget.src = "/placeholder.svg"; }}
+                  />
+                </article>
+              ))}
+            </div>
+          </div>
         </div>
       </section>
 

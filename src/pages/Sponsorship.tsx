@@ -1,9 +1,36 @@
-import { BadgeDollarSign, ExternalLink, FileText, HandCoins, HeartHandshake, Languages, Users } from "lucide-react";
+import {
+  BadgeDollarSign,
+  Download,
+  ExternalLink,
+  FileText,
+  HandCoins,
+  HeartHandshake,
+  Languages,
+  Users,
+} from "lucide-react";
 import PageHeroBanner from "@/components/common/PageHeroBanner";
 import { Button } from "@/components/ui/button";
 import { openExternal } from "@/lib/navigation";
 
 const languages = ["English", "Spanish", "French"] as const;
+
+const commercialFolderDownloads = [
+  {
+    language: "English",
+    label: "EN commercial folder",
+    href: "/downloads/wrc-2027-commercial-folder-en.pdf",
+  },
+  {
+    language: "Spanish",
+    label: "ES carpeta comercial",
+    href: "/downloads/wrc-2027-commercial-folder-es.pdf",
+  },
+  {
+    language: "French",
+    label: "FR dossier commercial",
+    href: "/downloads/wrc-2027-commercial-folder-fr.pdf",
+  },
+] as const;
 
 const sponsorshipOptions = [
   {
@@ -92,9 +119,58 @@ const Sponsorship = () => {
               />
               <p className="relative z-10 text-base leading-relaxed text-forest-primary md:pr-16 md:text-lg">
                 Sponsors play a direct role in widening access to the congress and supporting the
-              people who protect nature every day. This page hosts sponsorship links for
-              partners, ranger sponsorship, and delegate support requests in English, Spanish, and French.
-            </p>
+                people who protect nature every day.
+              </p>
+            </div>
+          </div>
+        </section>
+
+        <section className="mb-16 overflow-hidden rounded-3xl border border-forest-light/30 bg-card/95 shadow-forest">
+          <div className="grid gap-8 p-7 md:p-9 lg:grid-cols-[0.9fr_1.1fr] lg:items-center">
+            <div>
+              <div className="mb-5 flex h-14 w-14 items-center justify-center rounded-2xl forest-gradient text-white">
+                <FileText className="h-7 w-7" />
+              </div>
+              <p className="mb-3 text-sm font-semibold uppercase tracking-[0.2em] text-earth-brown">
+                Commercial Folder
+              </p>
+              <h2 className="text-3xl font-bold leading-tight text-forest-deep md:text-4xl">
+                Download the sponsorship package
+              </h2>
+              <p className="mt-4 max-w-2xl text-sm leading-relaxed text-forest-primary md:text-base">
+                Access the official commercial sponsorship folder in the congress languages and
+                share it with partners interested in supporting the 11th IRF World Ranger Congress.
+              </p>
+            </div>
+
+            <div className="grid gap-3 sm:grid-cols-3 lg:grid-cols-1 xl:grid-cols-3">
+              {commercialFolderDownloads.map((download) => (
+                <Button
+                  key={download.href}
+                  asChild
+                  variant="outline"
+                  className="h-auto justify-between border-forest-light/40 bg-forest-mist/40 px-4 py-4 text-left text-forest-deep hover:bg-forest-mist"
+                >
+                  <a
+                    href={download.href}
+                    download
+                    aria-label={`Download sponsorship package in ${download.language}`}
+                  >
+                    <span className="flex min-w-0 items-center gap-3">
+                      <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-white text-forest-deep shadow-sm">
+                        <FileText className="h-5 w-5" />
+                      </span>
+                      <span className="min-w-0">
+                        <span className="block font-semibold">{download.language}</span>
+                        <span className="block truncate text-xs font-semibold uppercase tracking-wide text-forest-primary/75">
+                          {download.label}
+                        </span>
+                      </span>
+                    </span>
+                    <Download className="h-4 w-4 shrink-0 text-forest-primary" />
+                  </a>
+                </Button>
+              ))}
             </div>
           </div>
         </section>

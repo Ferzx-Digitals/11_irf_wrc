@@ -143,6 +143,23 @@ export const homeContentEn: HomeContent = {
       },
     ],
   },
+  partners: {
+    title: "Partners",
+    items: [
+      {
+        name: "UNESCO World Heritage",
+        logo: "/images/partners/unesco-world-heritage.png",
+      },
+      {
+        name: "Parque Nacional Iguazu",
+        logo: "/images/partners/parque-nacional-iguazu.png",
+      },
+      {
+        name: "Parques Nacionales",
+        logo: "/images/partners/parques-nacionales.png",
+      },
+    ],
+  },
   team: {
     title: "Our Team",
     members: [

@@ -14,6 +14,11 @@ export interface Organizer {
   logo: string;
 }
 
+export interface Partner {
+  name: string;
+  logo: string;
+}
+
 export interface TeamMember {
   name: string;
   role: string;
@@ -83,6 +88,10 @@ export interface HomeContent {
   organizers: {
     title: string;
     items: Organizer[];
+  };
+  partners: {
+    title: string;
+    items: Partner[];
   };
   team: {
     title: string;
