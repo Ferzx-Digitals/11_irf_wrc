@@ -253,10 +253,10 @@ export const taxInfo: TaxInfoItem[] = [
 
 export const bookingContacts: BookingContact[] = [
   {
-    name: "Full Service EVT (Official Travel Agency)",
-    email: "fullserviceevt@gmail.com",
-    phone: "+54 3757 423721",
-    description: "Official congress travel agency for hotel bookings, tour packages, and transfers.",
+    name: "Plan A (Transportation & Transfers)",
+    email: "malena@plan-aeventos.com",
+    phone: "+54 9 3518 59-6103",
+    description: "Malena will assist attendees with all transportation and transfer inquiries on behalf of Plan A.",
   },
   {
     name: "IRF Congress Office",

@@ -306,22 +306,22 @@ const TravelVenue = () => {
               </div>
               <h3 className="mb-2 text-xl font-bold text-forest-deep">Transfer Support</h3>
               <p className="mb-5 text-sm leading-relaxed text-forest-primary">
-                Full Service EVT can support participants who need help arranging transfers.
+                Malena will assist attendees with all transportation and transfer inquiries on behalf of Plan A.
               </p>
               <div className="space-y-3">
                 <a
-                  href="mailto:fullserviceevt@gmail.com"
+                  href="mailto:malena@plan-aeventos.com"
                   className="flex items-center gap-3 rounded-xl border border-forest-light/30 bg-forest-mist/50 px-4 py-3 text-sm font-semibold text-forest-deep transition-smooth hover:bg-forest-mist"
                 >
                   <Mail className="h-4 w-4 shrink-0 text-forest-primary" />
-                  fullserviceevt@gmail.com
+                  malena@plan-aeventos.com
                 </a>
                 <a
-                  href="tel:+543757423721"
+                  href="tel:+5493518596103"
                   className="flex items-center gap-3 rounded-xl border border-forest-light/30 bg-forest-mist/50 px-4 py-3 text-sm font-semibold text-forest-deep transition-smooth hover:bg-forest-mist"
                 >
                   <Phone className="h-4 w-4 shrink-0 text-forest-primary" />
-                  +54 3757 423721
+                  +54 9 3518 59-6103
                 </a>
               </div>
             </article>
