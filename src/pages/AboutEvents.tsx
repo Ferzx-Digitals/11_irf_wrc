@@ -1,3 +1,4 @@
+import { ArrowUpRight } from "lucide-react";
 import PageHeroBanner from "@/components/common/PageHeroBanner";
 import { Button } from "@/components/ui/button";
 import {
@@ -9,6 +10,7 @@ import {
   DialogTrigger,
 } from "@/components/ui/dialog";
 import { congressActivities } from "@/content/congress/program";
+import { volunteerParks, VOLUNTEER_PROGRAM_INFO } from "@/content/travel";
 
 const columns = ["Start Time", "Finish Time", "Session Duration", "Session / Activity", "Description"];
 
@@ -218,6 +220,64 @@ const AboutEvents = () => {
                 </div>
               </article>
             ))}
+          </div>
+        </div>
+
+        {/* Volunteer in an Argentine National Park */}
+        <div className="mt-16">
+          <h2 className="mb-4 text-center text-3xl font-bold text-forest-deep">
+            Volunteer in an Argentine National Park
+          </h2>
+          <p className="mx-auto mb-8 max-w-3xl text-center text-forest-primary">
+            {VOLUNTEER_PROGRAM_INFO.intro}
+          </p>
+          <div className="overflow-hidden rounded-2xl border border-forest-light/30 bg-card/95 shadow-forest">
+            <table className="w-full">
+              <thead>
+                <tr className="bg-forest-mist/70 text-left">
+                  <th className="px-6 py-3 text-sm font-bold uppercase tracking-wide text-forest-deep">
+                    Park
+                  </th>
+                  <th className="px-6 py-3 text-sm font-bold uppercase tracking-wide text-forest-deep">
+                    Contact
+                  </th>
+                </tr>
+              </thead>
+              <tbody>
+                {volunteerParks.map((park, index) => (
+                  <tr
+                    key={park.name}
+                    className={index % 2 === 0 ? "bg-card" : "bg-forest-mist/20"}
+                  >
+                    <td className="px-6 py-3 text-sm font-semibold text-forest-deep">
+                      {park.url ? (
+                        <a
+                          href={park.url}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="inline-flex items-center gap-1.5 underline decoration-dashed underline-offset-4"
+                        >
+                          {park.name}
+                          <ArrowUpRight className="h-3.5 w-3.5 shrink-0" />
+                        </a>
+                      ) : (
+                        park.name
+                      )}
+                    </td>
+                    <td className="px-6 py-3 text-sm text-forest-primary">
+                      {park.emails.map((email, i) => (
+                        <span key={email}>
+                          {i > 0 && " / "}
+                          <a href={`mailto:${email}`} className="font-semibold hover:underline">
+                            {email}
+                          </a>
+                        </span>
+                      ))}
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
           </div>
         </div>
       </div>
