@@ -67,6 +67,12 @@ export interface EmergencyNumber {
   number: string;
 }
 
+export interface VolunteerPark {
+  name: string;
+  emails: string[];
+  url?: string;
+}
+
 export const VISA_PORTAL_URL =
   "https://www.migraciones.gob.ar/accesible/indexdnm.php?visas";
 
@@ -314,4 +320,51 @@ export const emergencyNumbers: EmergencyNumber[] = [
   { service: "Taxi Puerto Iguazu", number: "+54 3757 422008" },
   { service: "Argentine Tourist Info", number: "0800-555-0016" },
   { service: "Bus Terminal", number: "+54 3757 423006" },
+];
+
+export const VOLUNTEER_PROGRAM_INFO = {
+  intro:
+    "Extend your trip beyond the congress: Argentina's national park administration (APN) welcomes volunteers, from 1 week up to 3 months, starting 24 April 2027. Lodging and insurance are provided by the park — volunteers cover their own food. Contact the park directly to apply.",
+};
+
+export const volunteerParks: VolunteerPark[] = [
+  {
+    name: "Los Cardones",
+    emails: ["Edaher@apn.gob.ar", "loscardones@apn.gob.ar"],
+    url: "https://www.argentina.gob.ar/parquesnacionales/region-noroeste/parque-nacional-los-cardones",
+  },
+  {
+    name: "Talampaya",
+    emails: ["Talampaya@apn.gob.ar"],
+    url: "https://www.argentina.gob.ar/parquesnacionales/centro/parque-nacional-talampaya",
+  },
+  {
+    name: "El Leoncito",
+    emails: ["Snazar@apn.gob.ar", "elleoncito@apn.gob.ar"],
+    url: "https://www.argentina.gob.ar/parquesnacionales/centro/parque-nacional-el-leoncito",
+  },
+  {
+    name: "Quebrada del Condorito",
+    emails: ["Quebradadelcondorito@apn.gob.ar", "nvallejo@apn.gob.ar"],
+    url: "https://www.argentina.gob.ar/parquesnacionales/centro/parque-nacional-quebrada-del-condorito",
+  },
+  {
+    name: "Sierra de las Quijadas",
+    emails: ["Arudy@apn.gob.ar", "sierradelasquijadas@apn.gob.ar"],
+    url: "https://www.argentina.gob.ar/parquesnacionales/centro/parque-nacional-sierra-de-las-quijadas",
+  },
+  {
+    name: "Pre-Delta",
+    emails: ["Predelta@apn.gob.ar"],
+    url: "https://www.argentina.gob.ar/parquesnacionales/centro/parque-nacional-pre-delta",
+  },
+  {
+    name: "Campos del Tuyu",
+    emails: ["Ljuber@apn.gob.ar", "camposdeltuyu@apn.gob.ar"],
+  },
+  {
+    name: "Patagonia",
+    emails: ["voluntariospatagonia@apn.gob.ar", "ninsaurralde@apn.gob.ar"],
+    url: "https://www.argentina.gob.ar/parquesnacionales/patagonia-austral/parque-nacional-patagonia",
+  },
 ];
