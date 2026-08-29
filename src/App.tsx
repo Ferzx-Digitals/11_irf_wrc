@@ -18,6 +18,7 @@ import Travel from "./pages/Travel";
 import TravelVenue from "./pages/TravelVenue";
 import TravelFaqs from "./pages/TravelFaqs";
 import Program from "./pages/Program";
+import Training from "./pages/Training";
 import Press from "./pages/Press";
 import Register from "./pages/Register";
 import NotFound from "./pages/NotFound";
@@ -46,6 +47,7 @@ const App = () => (
             <Route path="/travel/venue" element={<TravelVenue />} />
             <Route path="/travel/faqs" element={<TravelFaqs />} />
             <Route path="/program" element={<Program />} />
+            <Route path="/training" element={<Training />} />
             <Route path="/press" element={<Press />} />
             <Route path="/sponsorship" element={<Sponsorship />} />
             <Route path="/register" element={<Register />} />

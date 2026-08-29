@@ -14,6 +14,14 @@ import { openExternal } from "@/lib/navigation";
 
 const languages = ["English", "Spanish", "French"] as const;
 
+const sponsors = [
+  {
+    name: "Kimeco",
+    logo: "/images/sponsors/kimeco.png",
+    url: "",
+  },
+] as const;
+
 const commercialFolderDownloads = [
   {
     language: "English",
@@ -212,6 +220,48 @@ const Sponsorship = () => {
             </article>
           ))}
         </div>
+
+        <section className="mb-16 overflow-hidden rounded-3xl border border-forest-light/30 bg-card/95 p-8 shadow-forest md:p-10">
+          <div className="mb-8 text-center">
+            <p className="mb-3 text-sm font-semibold uppercase tracking-[0.2em] text-earth-brown">
+              Our Sponsors
+            </p>
+            <h2 className="text-3xl font-bold leading-tight text-forest-deep md:text-4xl">
+              Thank you to our supporters
+            </h2>
+            <p className="mx-auto mt-4 max-w-2xl text-sm leading-relaxed text-forest-primary md:text-base">
+              Organizations helping make the 11th IRF World Ranger Congress possible.
+            </p>
+          </div>
+          <div className="mx-auto flex max-w-4xl flex-wrap justify-center gap-6">
+            {sponsors.map((sponsor) => {
+              const card = (
+                <div className="flex h-40 w-56 items-center justify-center rounded-2xl border border-forest-light/30 bg-white p-5 transition-smooth hover:-translate-y-1 hover:shadow-floating">
+                  <img
+                    src={sponsor.logo}
+                    alt={sponsor.name}
+                    className="max-h-full max-w-full object-contain"
+                    loading="lazy"
+                  />
+                </div>
+              );
+
+              return sponsor.url ? (
+                <a
+                  key={sponsor.name}
+                  href={sponsor.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label={sponsor.name}
+                >
+                  {card}
+                </a>
+              ) : (
+                <div key={sponsor.name}>{card}</div>
+              );
+            })}
+          </div>
+        </section>
 
         <section className="mb-16 rounded-3xl bg-forest-deep px-6 py-12 text-white shadow-forest md:px-10">
           <div className="mx-auto max-w-4xl text-center">

@@ -22,6 +22,7 @@ const navItems: NavItem[] = [
     ],
   },
   { to: "/program", label: "Program" },
+  { to: "/training", label: "Training" },
   { to: "/submit", label: "Submit" },
   {
     label: "Plan Travel",

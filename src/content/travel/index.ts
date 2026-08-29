@@ -84,7 +84,7 @@ export const transportOptions: TransportOption[] = [
     icon: "✈️",
     description:
       "The closest airport is Aeropuerto Internacional Cataratas del Iguazú (IGR), located approximately 20 km from Puerto Iguazu city center. Multiple daily flights from Buenos Aires (1h 50min).",
-    details: "Airlines: Aerolineas Argentinas, Flybondi, JetSMART",
+    details: "Airlines: Aerolineas Argentinas, JetSMART",
   },
   {
     id: "air-igu",
@@ -130,11 +130,6 @@ export const airlines: Airline[] = [
     name: "Aerolineas Argentinas",
     logo: "/images/images/airlines/aerolineas-argentinas.png",
     url: "https://www.aerolineas.com.ar",
-  },
-  {
-    name: "Flybondi",
-    logo: "/images/images/airlines/flybondi.png",
-    url: "https://www.flybondi.com",
   },
   {
     name: "JetSMART",
