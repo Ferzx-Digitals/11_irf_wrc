@@ -95,11 +95,11 @@ const Travel = () => {
           <h2 className="mb-8 text-center text-3xl font-bold text-forest-deep">
             Airlines Serving Iguazu
           </h2>
-          <div className="mx-auto grid max-w-4xl gap-6 sm:grid-cols-3">
+          <div className="mx-auto flex max-w-4xl flex-wrap justify-center gap-6">
             {airlines.map((airline) => (
               <article
                 key={airline.name}
-                className="rounded-2xl border border-forest-light/30 bg-card/95 p-6 text-center shadow-forest transition-smooth hover:-translate-y-1 hover:shadow-floating"
+                className="w-full max-w-xs rounded-2xl border border-forest-light/30 bg-card/95 p-6 text-center shadow-forest transition-smooth hover:-translate-y-1 hover:shadow-floating sm:w-64"
               >
                 <img
                   src={airline.logo}
